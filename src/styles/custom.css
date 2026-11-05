@@ -2929,3 +2929,253 @@ section,
         justify-content: center;
     }
 }
+
+/* =========================================
+   EAZYCLASSROOM CUSTOM FOOTER (Dark Theme)
+   ========================================= */
+.ec-footer {
+    background-color: #0B1120;
+    color: #94A3B8;
+    font-family: inherit;
+}
+
+/* Top CTA Area */
+.ec-footer-cta {
+    padding: 80px 0;
+    border-bottom: 1px solid #1E293B;
+    background: linear-gradient(180deg, #0F172A 0%, #0B1120 100%);
+}
+
+.ec-footer-cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.ec-footer-cta h2 {
+    color: #F8FAFC;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+}
+
+.ec-footer-cta p {
+    color: #94A3B8;
+    font-size: 16px;
+    margin: 0;
+    max-width: 500px;
+}
+
+.ec-footer-cta-actions {
+    display: flex;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.ec-footer-btn-solid {
+    background: #3B82F6;
+    color: #FFFFFF;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.ec-footer-btn-solid:hover {
+    background: #2563EB;
+    color: #FFFFFF;
+}
+
+.ec-footer-btn-outline {
+    background: transparent;
+    color: #F8FAFC;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #334155;
+    transition: all 0.2s;
+}
+
+.ec-footer-btn-outline:hover {
+    background: #1E293B;
+    border-color: #475569;
+    color: #F8FAFC;
+}
+
+/* Main Links Area */
+.ec-footer-main {
+    padding: 80px 0 60px;
+}
+
+.ec-footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    margin-bottom: 24px;
+}
+
+.ec-footer-logo-box {
+    width: 32px;
+    height: 32px;
+    background: #3B82F6;
+    color: #FFFFFF;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ec-footer-logo span {
+    font-size: 20px;
+    font-weight: 800;
+    color: #F8FAFC;
+    letter-spacing: -0.02em;
+}
+
+.ec-footer-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #94A3B8;
+    margin-bottom: 24px;
+    max-width: 320px;
+}
+
+.ec-footer-socials {
+    display: flex;
+    gap: 16px;
+}
+
+.ec-footer-socials a {
+    color: #94A3B8;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #1E293B;
+}
+
+.ec-footer-socials a:hover {
+    color: #FFFFFF;
+    background: #3B82F6;
+}
+
+/* Link Columns */
+.ec-footer-heading {
+    color: #F8FAFC;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+}
+
+.ec-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ec-footer-links a {
+    color: #94A3B8;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.ec-footer-links a:hover {
+    color: #60A5FA;
+}
+
+/* Bottom Bar */
+.ec-footer-bottom {
+    background: #0F172A;
+    padding: 24px 0;
+    border-top: 1px solid #1E293B;
+}
+
+.ec-footer-bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.ec-footer-bottom p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748B;
+}
+
+.ec-footer-bottom-links {
+    display: flex;
+    gap: 24px;
+}
+
+.ec-footer-bottom-links a {
+    color: #64748B;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+}
+
+.ec-footer-bottom-links a:hover {
+    color: #F8FAFC;
+}
+
+/* =========================================
+   FOOTER RESPONSIVE (Mobile)
+   ========================================= */
+@media (max-width: 991px) {
+    .ec-footer-cta-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .ec-footer-cta-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .ec-footer-btn-solid,
+    .ec-footer-btn-outline {
+        width: 100%;
+        text-align: center;
+    }
+
+    .ec-footer-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .ec-footer-socials {
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .ec-footer-heading {
+        margin-bottom: 16px;
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .ec-footer-main {
+        padding: 60px 0 40px;
+    }
+
+    .ec-footer-bottom-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+}
