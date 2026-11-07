@@ -47,19 +47,23 @@ const FaqAreaHomeTwo = () => {
       <div className="container">
         <div className="row">
           
-          {/* Left Side: Heading & CTA */}
+          {/* Left Side: Sticky Content */}
           <div className="col-lg-5 mb-5 mb-lg-0">
-            <div className="ec-feature-content">
+            <div className="ec-faq-sticky">
               <span className="ec-kicker">FAQ</span>
-              <h2 className="ec-title">Questions? We have answers.</h2>
-              <p className="ec-subtitle">
+              <h2 className="ec-title">Questions?<br />We have answers.</h2>
+              <p className="ec-subtitle mb-4">
                 Everything you need to know about the product, billing, and how EazyClassroom fits into your academy.
               </p>
-              <div className="mt-4">
-                <p style={{ color: "#475569", fontSize: "15px", marginBottom: "16px" }}>
-                  Still have questions? Our team is here to help.
-                </p>
-                <Link href="/contact" className="ec-dash-btn">
+
+              {/* Support Card */}
+              <div className="ec-faq-support-card">
+                <div className="ec-faq-support-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <h4>Still have questions?</h4>
+                <p>Can't find the answer you're looking for? Our friendly support team usually replies within 2 hours.</p>
+                <Link href="/contact" className="ec-dash-btn" style={{ width: "100%", textAlign: "center" }}>
                   Contact Support
                 </Link>
               </div>

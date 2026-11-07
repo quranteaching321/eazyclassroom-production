@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -55,9 +55,9 @@ const HeaderFour = () => {
                         <div className="fid-nav-item">
                             <span className="fid-nav-link">Platform <i className="fid-chevron"></i></span>
                             <div className="fid-dropdown">
-                                <Link href="/features/native-rooms"><strong>Native Rooms</strong><span>Fully hosted classrooms</span></Link>
-                                <Link href="/features/byom"><strong>Bring Your Own Meeting</strong><span>Zoom, Meet, Teams</span></Link>
-                                <Link href="/features/monitoring"><strong>Live Monitoring</strong><span>Real-time oversight</span></Link>
+                                <Link href="/features/scheduling"><strong>Scheduling &amp; Access</strong><span>Control your rooms</span></Link>
+                                <Link href="/features/crm"><strong>Custom CRM</strong><span>Your own system</span></Link>
+                                <Link href="/features/monitoring"><strong>Live Monitoring</strong><span>Real-time oversight</span></Link><Link href="/features/ai"><strong>Eazy AI</strong><span>Lesson Analysis</span></Link>
                             </div>
                         </div>
                         <div className="fid-nav-item">
@@ -103,9 +103,9 @@ const HeaderFour = () => {
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={mobileSubMenu === 'platform' ? 'rotated' : ''}><polyline points="6 9 12 15 18 9"></polyline></svg>
                             </button>
                             <div className={`fid-mobile-sub ${mobileSubMenu === 'platform' ? 'open' : ''}`}>
-                                <Link href="/features/native-rooms" onClick={() => setMobileOpen(false)}>Native Rooms</Link>
-                                <Link href="/features/byom" onClick={() => setMobileOpen(false)}>Bring Your Own Meeting</Link>
-                                <Link href="/features/monitoring" onClick={() => setMobileOpen(false)}>Live Monitoring</Link>
+                                <Link href="/features/scheduling" onClick={() => setMobileOpen(false)}>Scheduling &amp; Access</Link>
+                                <Link href="/features/crm" onClick={() => setMobileOpen(false)}>Custom CRM</Link>
+                                <Link href="/features/monitoring" onClick={() => setMobileOpen(false)}>Live Monitoring</Link><Link href="/features/ai" onClick={() => setMobileOpen(false)}>Eazy AI</Link>
                             </div>
                         </div>
 

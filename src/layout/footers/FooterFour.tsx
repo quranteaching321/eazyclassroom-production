@@ -1,26 +1,10 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const FooterFour = () => {
   return (
     <footer className="ec-footer">
       
-      {/* Top CTA Section */}
-      <div className="ec-footer-cta">
-        <div className="container">
-          <div className="ec-footer-cta-inner">
-            <div>
-              <h2>Ready to modernize your academy?</h2>
-              <p>Join academies managing their entire virtual classroom from one dashboard.</p>
-            </div>
-            <div className="ec-footer-cta-actions">
-              <Link href="/signup" className="ec-footer-btn-solid">Start Free Trial</Link>
-              <Link href="/contact" className="ec-footer-btn-outline">Contact Sales</Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Footer Links */}
+                {/* Main Footer Links */}
       <div className="ec-footer-main">
         <div className="container">
           <div className="row">
@@ -51,7 +35,7 @@ const FooterFour = () => {
                 <li><Link href="/">Home</Link></li>
                 <li><Link href="/pricing">Pricing</Link></li>
                 <li><Link href="/download">Download App</Link></li>
-                <li><Link href="/course-management">Course Management</Link></li>
+                <li><Link href="/features/courses">Course Management</Link></li>
               </ul>
             </div>
 
@@ -60,10 +44,10 @@ const FooterFour = () => {
               <h4 className="ec-footer-heading">Features</h4>
               <ul className="ec-footer-links">
                 <li><Link href="#how_it_works">How it Works</Link></li>
-                <li><Link href="#eazy_ai">Eazy AI Analysis</Link></li>
-                <li><Link href="#recording">Recording & Storage</Link></li>
-                <li><Link href="#marketing">Social Publishing</Link></li>
-                <li><Link href="#crm">Custom CRM</Link></li>
+                <li><Link href="/features/ai">Eazy AI Analysis</Link></li>
+                <li><Link href="/features/recording">Recording & Storage</Link></li>
+                <li><Link href="/features/marketing">Social Publishing</Link></li>
+                <li><Link href="/features/crm">Custom CRM</Link></li>
               </ul>
             </div>
 

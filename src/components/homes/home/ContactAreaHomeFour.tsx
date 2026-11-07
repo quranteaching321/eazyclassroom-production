@@ -1,213 +1,104 @@
-import Image, { StaticImageData } from "next/image";
-import ContactFormHomeFour from "@/components/forms/ContactFormHomeFour";
-import contact_bg_shape from "@/assets/img/bg/contact-4-bg.jpg";
-
-// contact shape
-import contact_shape_1 from "@/assets/img/shape/contact-4-shape-1.png";
-import contact_shape_2 from "@/assets/img/shape/contact-4-shape-2.png";
-import contact_shape_3 from "@/assets/img/shape/contact-4-shape-3.png";
-import contact_shape_4 from "@/assets/img/shape/contact-4-shape-4.png";
-import contact_shape_5 from "@/assets/img/shape/contact-4-shape-5.png";
-import contact_shape_6 from "@/assets/img/shape/contact-4-shape-6.png";
-
-interface contact_content_type {
-    sub_title: string;
-    title: JSX.Element;
-    sm_des: string;
-    cotact_shape: {
-        id: number;
-        img: StaticImageData;
-        cls: string;
-    }[];
-}
-
-const contact_content: contact_content_type = {
-    sub_title: "Get in touch",
-    title: <>Lets work <br />Together</>,
-    sm_des: "Just tell us your requirements and we will help you!",
-    cotact_shape: [
-        { id: 1, img: contact_shape_1, cls: "" },
-        { id: 2, img: contact_shape_2, cls: "" },
-        { id: 3, img: contact_shape_3, cls: "" },
-        { id: 4, img: contact_shape_4, cls: "" },
-        { id: 5, img: contact_shape_5, cls: "d-none d-xxl-block" },
-        { id: 6, img: contact_shape_6, cls: "d-none d-xxl-block" },
-    ],
-};
-
-const { sub_title, title, sm_des, cotact_shape } = contact_content;
+﻿"use client";
+import React from "react";
 
 const ContactAreaHomeFour = () => {
-    return (
-        <section
-            className="contact-area p-relative contact-bg-4 pb-65 mb-60"
-            id="contact"
-            style={{ marginBottom: "0px" }}
-        >
-            <div className="contact-main-shape-bg d-none d-md-block">
-                <Image src={contact_bg_shape} alt="Eazyclassroom" />
-            </div>
-            <div className="contact-shape d-none d-lg-block">
-                {cotact_shape.map((item, i) => (
-                    <Image
-                        key={i}
-                        src={item.img}
-                        alt="Eazyclassroom"
-                        className={`contact-shape-${item.id} ${item.cls}`}
-                    />
-                ))}
-            </div>
-            <div className="container">
-                {/* Row 1: intro text + contact form */}
-                <div className="row">
-                    <div className="col-lg-6">
-                        <div
-                            className="tpcontact-4 mt-30 mb-50"
-                            style={{ marginRight: "12px" }}
-                        >
-                            <div className="section-wrapper mb-20">
-                                <span>{sub_title}</span>
-                                <h5 className="section-title-4 section-title-4-2">{title}</h5>
-                            </div>
-                            <div className="tpcontact-4-content">
-                                <p>{sm_des}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-6">
-                        <div className="tpcontact-4-box mb-60">
-                            <div className="tpcontact-4-box-wrapper">
-                                <ContactFormHomeFour />
-                            </div>
-                        </div>
-                    </div>
+  return (
+    <section className="ec-feature-section ec-contact-dark">
+      <div className="container">
+        <div className="row">
+          
+          {/* Left Side: Contact Info (Sticky) */}
+          <div className="col-lg-5 mb-5 mb-lg-0">
+            <div className="ec-faq-sticky">
+              <span className="ec-kicker">Contact Us</span>
+              <h2 className="ec-title">Let's talk about<br />your academy.</h2>
+              <p className="ec-subtitle mb-5">
+                Have questions about features, pricing, or custom CRM integration? Our team usually replies within a few hours.
+              </p>
+
+              {/* Contact Methods */}
+              <div className="ec-contact-methods">
+                
+                <div className="ec-contact-card">
+                  <div className="ec-contact-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  </div>
+                  <div>
+                    <span className="ec-contact-label">Email Us</span>
+                    <a href="mailto:support@eazyclassroom.net" className="ec-contact-value">support@eazyclassroom.net</a>
+                  </div>
                 </div>
 
-                {/* Row 2: Full‑width company cards (horizontal) */}
-                <div className="row">
-                    <div className="col-12">
-                        <div
-                            className="company-details-wrapper"
-                            style={{
-                                display: "flex",
-                                flexWrap: "wrap",
-                                gap: "20px",
-                                marginTop: "1rem",
-                                width: "100%",
-                                boxSizing: "border-box",
-                                justifyContent: "center",
-                            }}
-                        >
-                            {/* Reall Technologies (Private) Limited - Pakistan */}
-                            <div
-                                className="company-card"
-                                style={{
-                                    flex: "1 1 280px",
-                                    minWidth: "250px",
-                                    maxWidth: "100%",
-                                    backgroundColor: "#f9f9f9",
-                                    padding: "1rem 1.25rem",
-                                    borderRadius: "10px",
-                                    border: "1px solid #eaeaea",
-                                    boxSizing: "border-box",
-                                }}
-                            >
-                                <h6 style={{ fontSize: "1rem", fontWeight: "600", marginBottom: "10px", color: "#0a0a0a" }}>
-                                    Reall Technologies (Private) Limited
-                                </h6>
-                                <address style={{ fontStyle: "normal", marginBottom: "8px", fontSize: "0.9rem", lineHeight: "1.5", color: "#555" }}>
-                                    2nd Floor, Shakeel Center, above Bank Alfalah,<br />
-                                    Faizabad, Rawalpindi, 46000, Pakistan
-                                </address>
-                                <p style={{ marginBottom: "12px", fontSize: "0.85rem", color: "#666" }}>
-                                    <strong>CUI No.:</strong> 0173541
-                                </p>
-
-                                {/* Google Maps Embed - Pakistan (address + name) */}
-                                <div
-                                    style={{
-                                        width: "100%",
-                                        height: "200px",
-                                        borderRadius: "8px",
-                                        overflow: "hidden",
-                                    }}
-                                >
-                                    <iframe
-                                        title="Reall Technologies Pakistan Map"
-                                        src="https://maps.google.com/maps?q=Reall+Technologies+(Private)+Limited+2nd+Floor+Shakeel+Center+above+Bank+Alfalah+Faizabad+Rawalpindi+46000+Pakistan&output=embed&z=15"
-                                        width="100%"
-                                        height="100%"
-                                        style={{ border: 0 }}
-                                        allowFullScreen
-                                        loading="lazy"
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Reall Technologies LLC - USA (using address + name, no API key needed) */}
-                            <div
-                                className="company-card"
-                                style={{
-                                    flex: "1 1 280px",
-                                    minWidth: "250px",
-                                    maxWidth: "100%",
-                                    backgroundColor: "#f9f9f9",
-                                    padding: "1rem 1.25rem",
-                                    borderRadius: "10px",
-                                    border: "1px solid #eaeaea",
-                                    boxSizing: "border-box",
-                                }}
-                            >
-                                <h6 style={{ fontSize: "1rem", fontWeight: "600", marginBottom: "10px", color: "#0a0a0a" }}>
-                                    Reall Technologies LLC
-                                </h6>
-                                <address style={{ fontStyle: "normal", marginBottom: "8px", fontSize: "0.9rem", lineHeight: "1.5", color: "#555" }}>
-                                    1209 Mountain Rd Pl NE,<br />
-                                    Albuquerque, NM 87110, United States
-                                </address>
-                                <p style={{ marginBottom: "12px", fontSize: "0.85rem", color: "#666" }}>
-                                    <strong>Entity ID:</strong> 0008102117
-                                </p>
-
-                                {/* Google Maps Embed - USA (address + name) */}
-                                <div
-                                    style={{
-                                        width: "100%",
-                                        height: "200px",
-                                        borderRadius: "8px",
-                                        overflow: "hidden",
-                                    }}
-                                >
-                                    <iframe
-                                        title="Reall Technologies USA Map"
-                                        src="https://maps.google.com/maps?q=Reall+Technologies+LLC+1209+Mountain+Rd+Pl+NE+Albuquerque+NM+87110+USA&output=embed&z=15"
-                                        width="100%"
-                                        height="100%"
-                                        style={{ border: 0 }}
-                                        allowFullScreen
-                                        loading="lazy"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Note */}
-                        <div
-                            style={{
-                                marginTop: "1rem",
-                                fontSize: "0.8rem",
-                                color: "#888",
-                                fontStyle: "italic",
-                                textAlign: "left",
-                            }}
-                        >
-                            *Parent companies of EazyClassroom.Net
-                        </div>
-                    </div>
+                <div className="ec-contact-card">
+                  <div className="ec-contact-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                  </div>
+                  <div>
+                    <span className="ec-contact-label">WhatsApp</span>
+                    <a href="https://wa.me/1234567890" target="_blank" rel="noreferrer" className="ec-contact-value">+1 (234) 567-890</a>
+                  </div>
                 </div>
+
+                <div className="ec-contact-card">
+                  <div className="ec-contact-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  </div>
+                  <div>
+                    <span className="ec-contact-label">Headquarters</span>
+                    <span className="ec-contact-value">Global / Remote</span>
+                  </div>
+                </div>
+
+              </div>
             </div>
-        </section>
-    );
+          </div>
+
+          {/* Right Side: Contact Form */}
+          <div className="col-lg-7">
+            <div className="ec-contact-form-wrapper">
+              <h3 className="ec-form-title">Send us a message</h3>
+              <p className="ec-form-subtitle">Fill out the form below and we'll get back to you as soon as possible.</p>
+              
+              <form className="ec-contact-form" onSubmit={(e) => e.preventDefault()}>
+                <div className="row">
+                  <div className="col-md-6 mb-4">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="John Doe" required />
+                  </div>
+                  <div className="col-md-6 mb-4">
+                    <label>Academy Name</label>
+                    <input type="text" placeholder="Al-Noor Academy" />
+                  </div>
+                </div>
+                
+                <div className="row">
+                  <div className="col-md-6 mb-4">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="john@academy.com" required />
+                  </div>
+                  <div className="col-md-6 mb-4">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="+1 (555) 000-0000" />
+                  </div>
+                </div>
+
+                <div className="mb-4">
+                  <label>How can we help?</label>
+                  <textarea rows={5} placeholder="Tell us about your academy and what you're looking for..." required></textarea>
+                </div>
+
+                <button type="submit" className="ec-form-submit-btn">
+                  Send Message
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default ContactAreaHomeFour;
