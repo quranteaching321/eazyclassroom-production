@@ -6335,3 +6335,153 @@ section.ec-bg-light:has(.ec-contact-form-wrapper) {
     .sp-dash-room-row { flex-direction: column; align-items: flex-start; gap: 12px; }
     .sp-dash-room-actions { width: 100%; justify-content: flex-end; }
 }
+/* =========================================
+   SCHEDULING / MONITORING CTA SPLIT
+   ========================================= */
+.sp-cta-split {
+    padding: 120px 0;
+    background: radial-gradient(ellipse 1000px 600px at 100% 0%, rgba(99, 102, 241, 0.15), transparent 60%),
+                linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%);
+    border-top: 1px solid #312E81;
+    position: relative;
+    overflow: hidden;
+}
+
+.sp-cta-split::before {
+    content: '';
+    position: absolute;
+    top: 20%; left: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.sp-cta-split-title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    margin: 0 0 20px;
+}
+
+.sp-cta-split-title span {
+    color: #93C5FD;
+}
+
+.sp-cta-split-sub {
+    font-size: 18px;
+    color: #CBD5E1;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0;
+}
+
+.sp-btn-white-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    color: #0F172A;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.sp-btn-white-solid:hover {
+    background: #F1F5F9;
+    color: #0F172A;
+    transform: translateY(-1px);
+}
+
+.sp-btn-white-outline {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    color: #FFFFFF;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.2s;
+}
+
+.sp-btn-white-outline:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #FFFFFF;
+}
+
+.sp-cta-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 32px;
+}
+
+.sp-cta-card-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: #93C5FD;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sp-cta-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sp-cta-card-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #F8FAFC;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.sp-cta-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: rgba(16, 185, 129, 0.2);
+    color: #34D399;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.sp-cta-card-footer {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94A3B8;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+}
+
+@media (max-width: 991px) {
+    .sp-cta-split { padding: 80px 0; }
+    .sp-cta-split-title { font-size: 36px; }
+    .sp-btn-white-solid,
+    .sp-btn-white-outline { width: 100%; justify-content: center; padding: 14px 24px; }
+    .sp-cta-card { padding: 24px; margin-top: 20px; }
+}
