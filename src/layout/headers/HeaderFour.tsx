@@ -2,140 +2,729 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+const ICONS: Record<string, React.ReactNode> = {
+  calendar: <><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></>,
+  eye: <><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></>,
+  book: <><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></>,
+  record: <><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="3" fill="currentColor" /></>,
+  sparkle: <><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z" /></>,
+  share: <><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" /></>,
+  link: <><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></>,
+  download: <><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></>,
+  file: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /></>,
+  help: <><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><line x1="12" y1="17" x2="12.01" y2="17" /></>,
+  mail: <><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></>,
+  info: <><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></>,
+  shield: <><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></>,
+  chevron: <polyline points="6 9 12 15 18 9" />,
+  menu: <><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></>,
+  close: <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>,
+  arrow: <><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></>,
+  check: <polyline points="20 6 9 17 4 12" />,
+};
+
+const Icon = ({ name, size = 18, style = {} }: { name: string; size?: number; style?: React.CSSProperties }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={style}>
+    {ICONS[name]}
+  </svg>
+);
+
+const PRODUCT_GROUPS = [
+  {
+    category: "Classroom",
+    items: [
+      { href: "/features/scheduling", label: "Scheduling & Access", desc: "Time zones, slots, auto-end", icon: "calendar" },
+      { href: "/features/monitoring", label: "Live Monitoring", desc: "Watch any class from browser", icon: "eye" },
+      { href: "/features/courses", label: "Course Management", desc: "Curriculum + annotation", icon: "book" },
+    ],
+  },
+  {
+    category: "Intelligence",
+    items: [
+      { href: "/features/recording", label: "Recording & Storage", desc: "Tamper-proof, local + cloud", icon: "record" },
+      { href: "/features/ai", label: "Eazy AI Analysis", desc: "BYOK Gemini, live alerts", icon: "sparkle" },
+    ],
+  },
+  {
+    category: "Growth",
+    items: [
+      { href: "/features/marketing", label: "Social Publishing", desc: "YouTube + 6 platforms", icon: "share" },
+      { href: "/features/crm", label: "Custom CRM", desc: "Connect your own system", icon: "link" },
+    ],
+  },
+];
+
+const RESOURCES = [
+  { href: "/docs", label: "Documentation", desc: "Guides & API reference", icon: "file" },
+  { href: "/download", label: "Download EazyRecorder", desc: "Free Windows client", icon: "download" },
+  { href: "/faq", label: "FAQ", desc: "Common questions", icon: "help" },
+  { href: "/contact", label: "Contact Support", desc: "We reply in 48 hours", icon: "mail" },
+];
+
+const COMPANY = [
+  
+  
+  { href: "/privacy", label: "Privacy", desc: "How we handle data", icon: "shield" },
+  { href: "/terms", label: "Terms", desc: "Legal terms", icon: "file" },
+];
+
 const HeaderFour = () => {
-    const [isSticky, setIsSticky] = useState(false);
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const [mobileSubMenu, setMobileSubMenu] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
+  const [bannerVisible, setBannerVisible] = useState(true);
 
-    useEffect(() => {
-        const handleScroll = () => setIsSticky(window.scrollY > 10);
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-    // Prevent body scroll when mobile menu is open
-    useEffect(() => {
-        if (mobileOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-        return () => { document.body.style.overflow = 'unset'; };
-    }, [mobileOpen]);
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "unset";
+    return () => { document.body.style.overflow = "unset"; };
+  }, [mobileOpen]);
 
-    const toggleSubMenu = (menu: string) => {
-        setMobileSubMenu(mobileSubMenu === menu ? null : menu);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { setOpenMenu(null); setMobileOpen(false); }
     };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
-    return (
-        <>
-            {/* Announcement Bar */}
-            <div className="fid-announcement-bar">
-                <span className="fid-announcement-badge">NEW</span>
-                <span className="fid-announcement-text">Eazy AI Live Monitoring is now available.</span>
-                <Link href="/features/ai" className="fid-announcement-link">
-                    Learn more
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '4px', verticalAlign: 'middle' }}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </Link>
+  const navBtnStyle: React.CSSProperties = {
+    padding: "8px 12px",
+    fontSize: "14px",
+    fontWeight: 500,
+    color: "#525252",
+    background: "transparent",
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    gap: "5px",
+    transition: "all 0.15s",
+    fontFamily: "inherit",
+  };
+
+  return (
+    <>
+      {/* ============ ANNOUNCEMENT BAR ============ */}
+      {bannerVisible && (
+        <div style={{
+          background: "#0F172A",
+          color: "#CBD5E1",
+          fontSize: "12px",
+          fontWeight: 500,
+          padding: "10px 24px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "12px",
+          flexWrap: "wrap",
+          textAlign: "center",
+          position: "relative",
+        }}>
+          <span style={{
+            background: "linear-gradient(135deg, #3B82F6, #8B5CF6)",
+            color: "#FFFFFF",
+            fontSize: "10px",
+            fontWeight: 800,
+            padding: "3px 10px",
+            borderRadius: "100px",
+            letterSpacing: "0.08em",
+          }}>NEW</span>
+          <span>
+            <strong style={{ color: "#F8FAFC", fontWeight: 600 }}>Eazy AI is live.</strong>{" "}
+            Bring your own Gemini key — $10/mo flat.
+          </span>
+          <span style={{ color: "#475569" }}>·</span>
+          <span style={{ display: "inline-flex", gap: "16px", flexWrap: "wrap", justifyContent: "center", fontSize: "11px", color: "#94A3B8" }}>
+            <span>✓ 14-day trial</span>
+            <span>✓ No card required</span>
+            <span>✓ Free Windows app</span>
+          </span>
+          <Link href="/features/ai" style={{ color: "#60A5FA", textDecoration: "none", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "4px" }}>
+            Learn more <Icon name="arrow" size={12} />
+          </Link>
+          <button
+            onClick={() => setBannerVisible(false)}
+            aria-label="Dismiss"
+            style={{
+              position: "absolute",
+              right: "16px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "transparent",
+              border: "none",
+              color: "#64748B",
+              cursor: "pointer",
+              padding: "4px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Icon name="close" size={14} />
+          </button>
+        </div>
+      )}
+
+      {/* ============ MAIN HEADER ============ */}
+      <header
+        onMouseLeave={() => setOpenMenu(null)}
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 1000,
+          background: scrolled ? "rgba(255,255,255,0.88)" : "#FFFFFF",
+          backdropFilter: scrolled ? "blur(16px) saturate(180%)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(16px) saturate(180%)" : "none",
+          borderBottom: "1px solid " + (scrolled || openMenu ? "#E5E7EB" : "#F1F5F9"),
+          transition: "background 0.2s ease, border-color 0.2s ease",
+        }}
+      >
+        <div style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "0 24px",
+          height: "64px",
+          display: "flex",
+          alignItems: "center",
+          gap: "24px",
+        }}>
+          {/* Logo */}
+          <Link href="/" onClick={() => setMobileOpen(false)} style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            textDecoration: "none",
+            flexShrink: 0,
+          }}>
+            <img src="/assets/img/logo/logo-new.png" alt="EazyClassroom" style={{ height: "36px", width: "auto", objectFit: "contain" }} />
+          </Link>
+
+          {/* Desktop nav */}
+          <nav className="fid-nav-desktop" style={{ flex: 1, alignItems: "center", gap: "4px" }}>
+            {/* Product */}
+            <button
+              onMouseEnter={() => setOpenMenu("product")}
+              style={{
+                ...navBtnStyle,
+                color: openMenu === "product" ? "#0F172A" : "#525252",
+                background: openMenu === "product" ? "#F5F5F5" : "transparent",
+              }}
+            >
+              Product
+              <Icon name="chevron" size={10} style={{ transform: openMenu === "product" ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
+            </button>
+
+            {/* Pricing */}
+            <Link
+              href="/pricing"
+              style={{ ...navBtnStyle, textDecoration: "none" }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "#F5F5F5"; e.currentTarget.style.color = "#0F172A"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#525252"; }}
+            >
+              Pricing
+              <span style={{ fontSize: "9px", fontWeight: 800, background: "#ECFDF5", color: "#059669", padding: "2px 6px", borderRadius: "4px", letterSpacing: "0.03em" }}>FREE TIER</span>
+            </Link>
+
+            {/* Resources */}
+            <div
+              style={{ position: "relative" }}
+              onMouseEnter={() => setOpenMenu("resources")}
+            >
+              <button style={{
+                ...navBtnStyle,
+                color: openMenu === "resources" ? "#0F172A" : "#525252",
+                background: openMenu === "resources" ? "#F5F5F5" : "transparent",
+              }}>
+                Resources
+                <Icon name="chevron" size={10} style={{ transform: openMenu === "resources" ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
+              </button>
+              {openMenu === "resources" && (
+                <div style={{
+                  position: "absolute",
+                  top: "calc(100% + 8px)",
+                  left: 0,
+                  background: "#FFFFFF",
+                  border: "1px solid #E5E7EB",
+                  borderRadius: "12px",
+                  padding: "8px",
+                  width: "300px",
+                  boxShadow: "0 20px 40px -12px rgba(15,23,42,0.15)",
+                  zIndex: 50,
+                }}>
+                  {RESOURCES.map((r) => (
+                    <Link key={r.href} href={r.href} style={{
+                      display: "flex",
+                      gap: "10px",
+                      padding: "10px 12px",
+                      borderRadius: "8px",
+                      textDecoration: "none",
+                      transition: "background 0.15s",
+                    }}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = "#F8FAFC")}
+                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                    >
+                      <div style={{ width: "28px", height: "28px", borderRadius: "6px", background: "rgba(37,99,235,0.08)", color: "#2563EB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                        <Icon name={r.icon} size={14} />
+                      </div>
+                      <div>
+                        <div style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>{r.label}</div>
+                        <div style={{ fontSize: "11px", color: "#64748B", marginTop: "1px" }}>{r.desc}</div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
 
-            <header className={`fid-header ${isSticky ? "fid-sticky" : ""}`}>
-                <div className="fid-container">
-
-                    {/* Logo */}
-                    <Link href="/" className="fid-logo" onClick={() => setMobileOpen(false)}>
-                        <div className="fid-logo-box">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        </div>
-                        <span>EazyClassroom</span>
-                    </Link>
-
-                    {/* Desktop Nav */}
-                    <nav className="fid-nav">
-                        <div className="fid-nav-item">
-                            <span className="fid-nav-link">Platform <i className="fid-chevron"></i></span>
-                            <div className="fid-dropdown">
-                                <Link href="/features/scheduling"><strong>Scheduling &amp; Access</strong><span>Control your rooms</span></Link>
-                                <Link href="/features/crm"><strong>Custom CRM</strong><span>Your own system</span></Link>
-                                <Link href="/features/monitoring"><strong>Live Monitoring</strong><span>Real-time oversight</span></Link><Link href="/features/ai"><strong>Eazy AI</strong><span>Lesson Analysis</span></Link>
-                            </div>
-                        </div>
-                        <div className="fid-nav-item">
-                            <span className="fid-nav-link">EazyRecorder <i className="fid-chevron"></i></span>
-                            <div className="fid-dropdown">
-                                <Link href="/download"><strong>Download App</strong><span>Free Windows client</span></Link>
-                                <Link href="/features/recording"><strong>Tamper-Proof</strong><span>Cannot be stopped</span></Link>
-                            </div>
-                        </div>
-                        <Link href="/pricing" className="fid-nav-link">Pricing</Link>
-                        <Link href="/docs" className="fid-nav-link">Docs</Link>
-                    </nav>
-
-                    {/* Desktop CTAs */}
-                    <div className="fid-header-actions">
-                        <Link href="/signin" className="fid-btn-text">Log In</Link>
-                        <Link href="/download" className="fid-btn-outline">Download App</Link>
-                        <Link href="/signup" className="fid-btn-solid">Start Free Trial</Link>
-                    </div>
-
-                    {/* Mobile Toggle (Hamburger) */}
-                    <button 
-                        className="fid-mobile-toggle" 
-                        onClick={() => setMobileOpen(!mobileOpen)}
-                        aria-label="Toggle menu"
+            {/* Company */}
+            <div
+              style={{ position: "relative" }}
+              onMouseEnter={() => setOpenMenu("company")}
+            >
+              <button style={{
+                ...navBtnStyle,
+                color: openMenu === "company" ? "#0F172A" : "#525252",
+                background: openMenu === "company" ? "#F5F5F5" : "transparent",
+              }}>
+                Company
+                <Icon name="chevron" size={10} style={{ transform: openMenu === "company" ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
+              </button>
+              {openMenu === "company" && (
+                <div style={{
+                  position: "absolute",
+                  top: "calc(100% + 8px)",
+                  left: 0,
+                  background: "#FFFFFF",
+                  border: "1px solid #E5E7EB",
+                  borderRadius: "12px",
+                  padding: "8px",
+                  width: "300px",
+                  boxShadow: "0 20px 40px -12px rgba(15,23,42,0.15)",
+                  zIndex: 50,
+                }}>
+                  {COMPANY.map((c) => (
+                    <Link key={c.href} href={c.href} style={{
+                      display: "flex",
+                      gap: "10px",
+                      padding: "10px 12px",
+                      borderRadius: "8px",
+                      textDecoration: "none",
+                      transition: "background 0.15s",
+                    }}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = "#F8FAFC")}
+                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                     >
-                        {mobileOpen ? (
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                        ) : (
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                        )}
-                    </button>
+                      <div style={{ width: "28px", height: "28px", borderRadius: "6px", background: "rgba(37,99,235,0.08)", color: "#2563EB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                        <Icon name={c.icon} size={14} />
+                      </div>
+                      <div>
+                        <div style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>{c.label}</div>
+                        <div style={{ fontSize: "11px", color: "#64748B", marginTop: "1px" }}>{c.desc}</div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
+              )}
+            </div>
+          </nav>
 
-                {/* Mobile Menu Overlay */}
-                <div className={`fid-mobile-overlay ${mobileOpen ? 'open' : ''}`}>
-                    <div className="fid-mobile-menu">
-                        
-                        {/* Accordion: Platform */}
-                        <div className="fid-mobile-nav-group">
-                            <button className="fid-mobile-nav-btn" onClick={() => toggleSubMenu('platform')}>
-                                Platform
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={mobileSubMenu === 'platform' ? 'rotated' : ''}><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </button>
-                            <div className={`fid-mobile-sub ${mobileSubMenu === 'platform' ? 'open' : ''}`}>
-                                <Link href="/features/scheduling" onClick={() => setMobileOpen(false)}>Scheduling &amp; Access</Link>
-                                <Link href="/features/crm" onClick={() => setMobileOpen(false)}>Custom CRM</Link>
-                                <Link href="/features/monitoring" onClick={() => setMobileOpen(false)}>Live Monitoring</Link><Link href="/features/ai" onClick={() => setMobileOpen(false)}>Eazy AI</Link>
-                            </div>
-                        </div>
+          {/* Desktop CTAs */}
+          <div className="fid-ctas-desktop" style={{ alignItems: "center", gap: "6px", flexShrink: 0 }}>
+            <Link href="/signin" style={{
+              padding: "8px 12px",
+              fontSize: "14px",
+              fontWeight: 500,
+              color: "#525252",
+              textDecoration: "none",
+              borderRadius: "6px",
+            }}>
+              Sign In
+            </Link>
+            <Link href="/signup" style={{
+              padding: "8px 16px",
+              fontSize: "14px",
+              fontWeight: 600,
+              color: "#FFFFFF",
+              background: "#0F172A",
+              textDecoration: "none",
+              borderRadius: "6px",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              transition: "background 0.15s",
+            }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#1E293B")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "#0F172A")}
+            >
+              Start Free <Icon name="arrow" size={13} />
+            </Link>
+          </div>
 
-                        {/* Accordion: EazyRecorder */}
-                        <div className="fid-mobile-nav-group">
-                            <button className="fid-mobile-nav-btn" onClick={() => toggleSubMenu('recorder')}>
-                                EazyRecorder
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={mobileSubMenu === 'recorder' ? 'rotated' : ''}><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </button>
-                            <div className={`fid-mobile-sub ${mobileSubMenu === 'recorder' ? 'open' : ''}`}>
-                                <Link href="/download" onClick={() => setMobileOpen(false)}>Download App</Link>
-                                <Link href="/features/recording" onClick={() => setMobileOpen(false)}>Tamper-Proof Recording</Link>
-                            </div>
-                        </div>
+          {/* Mobile toggle */}
+          <button
+            className="fid-mobile-toggle"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              width: "40px",
+              height: "40px",
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+              color: "#0F172A",
+              marginLeft: "auto",
+            }}
+          >
+            <Icon name={mobileOpen ? "close" : "menu"} size={22} />
+          </button>
+        </div>
 
-                        {/* Direct Links */}
-                        <Link href="/pricing" className="fid-mobile-nav-link" onClick={() => setMobileOpen(false)}>Pricing</Link>
-                        <Link href="/docs" className="fid-mobile-nav-link" onClick={() => setMobileOpen(false)}>Docs</Link>
+        {/* ============ PRODUCT MEGA MENU ============ */}
+        {openMenu === "product" && (
+          <div style={{ borderTop: "1px solid #F1F5F9", background: "#FFFFFF", boxShadow: "0 20px 30px -20px rgba(15,23,42,0.1)" }}>
+            <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "24px 24px 20px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 260px", gap: "16px" }}>
 
-                        <div className="fid-m-divider"></div>
-                        
-                        {/* Mobile CTAs */}
-                        <Link href="/signin" className="fid-m-btn-outline" onClick={() => setMobileOpen(false)}>Log In</Link>
-                        <Link href="/signup" className="fid-m-btn-solid" onClick={() => setMobileOpen(false)}>Start Free Trial</Link>
-                        
+                {/* 3 feature columns */}
+                {PRODUCT_GROUPS.map((group, gi) => (
+                  <div key={gi}>
+                    <div style={{ fontSize: "10px", fontWeight: 800, color: "#94A3B8", letterSpacing: "0.12em", textTransform: "uppercase", padding: "6px 12px", marginBottom: "4px" }}>
+                      {group.category}
                     </div>
+                    {group.items.map((item) => (
+                      <Link key={item.href} href={item.href} style={{
+                        display: "flex",
+                        gap: "10px",
+                        padding: "10px 12px",
+                        borderRadius: "8px",
+                        textDecoration: "none",
+                        transition: "background 0.15s",
+                      }}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = "#F8FAFC")}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                      >
+                        <div style={{
+                          width: "30px", height: "30px",
+                          borderRadius: "7px",
+                          background: "rgba(37,99,235,0.08)",
+                          color: "#2563EB",
+                          display: "flex", alignItems: "center", justifyContent: "center",
+                          flexShrink: 0,
+                        }}>
+                          <Icon name={item.icon} size={15} />
+                        </div>
+                        <div style={{ minWidth: 0 }}>
+                          <div style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A", marginBottom: "2px" }}>{item.label}</div>
+                          <div style={{ fontSize: "11px", color: "#64748B", lineHeight: 1.4 }}>{item.desc}</div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                ))}
+
+                {/* Download card */}
+                <div style={{
+                  background: "linear-gradient(180deg, #0F172A 0%, #1E293B 100%)",
+                  borderRadius: "12px",
+                  padding: "20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  color: "#FFFFFF",
+                  minHeight: "220px",
+                }}>
+                  <div style={{
+                    width: "36px", height: "36px",
+                    background: "rgba(255,255,255,0.1)",
+                    borderRadius: "8px",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    marginBottom: "12px",
+                  }}>
+                    <Icon name="download" size={18} />
+                  </div>
+                  <div style={{ fontSize: "14px", fontWeight: 700, marginBottom: "4px" }}>EazyRecorder</div>
+                  <div style={{ fontSize: "11px", color: "#94A3B8", marginBottom: "14px", lineHeight: 1.5 }}>
+                    Free forever for Windows 10 / 11
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginBottom: "16px" }}>
+                    {["Local + cloud", "Tamper-proof", "50 GB per room"].map((f, i) => (
+                      <div key={i} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "11px", color: "#CBD5E1" }}>
+                        <span style={{ color: "#34D399" }}><Icon name="check" size={10} /></span>
+                        {f}
+                      </div>
+                    ))}
+                  </div>
+                  <Link href="/download" style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "6px",
+                    background: "#FFFFFF",
+                    color: "#0F172A",
+                    padding: "10px",
+                    borderRadius: "8px",
+                    fontSize: "12px",
+                    fontWeight: 700,
+                    textDecoration: "none",
+                    marginTop: "auto",
+                  }}>
+                    Download <Icon name="arrow" size={12} />
+                  </Link>
                 </div>
-            </header>
-        </>
-    );
+
+              </div>
+
+              {/* Footer row */}
+              <div style={{
+                marginTop: "16px",
+                paddingTop: "16px",
+                borderTop: "1px solid #F1F5F9",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexWrap: "wrap",
+                gap: "12px",
+              }}>
+                <div style={{ fontSize: "12px", color: "#64748B" }}>
+                  ✨ All features included in your 14-day trial · No card required
+                </div>
+                <Link href="/pricing" style={{
+                  fontSize: "12px",
+                  color: "#2563EB",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "4px",
+                }}>
+                  See pricing <Icon name="arrow" size={12} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* ============ MOBILE DRAWER ============ */}
+      {mobileOpen && (
+        <div style={{
+          position: "fixed",
+          inset: 0,
+          background: "#FFFFFF",
+          zIndex: 999,
+          display: "flex",
+          flexDirection: "column",
+          overflowY: "auto",
+        }}>
+          <div style={{ padding: "20px 24px 40px" }}>
+
+            {/* Product accordion */}
+            <button
+              onClick={() => setMobileSection(mobileSection === "product" ? null : "product")}
+              style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "16px 0",
+                fontSize: "16px",
+                fontWeight: 600,
+                color: "#0F172A",
+                background: "transparent",
+                border: "none",
+                borderBottom: "1px solid #F1F5F9",
+                cursor: "pointer",
+                fontFamily: "inherit",
+              }}
+            >
+              Product
+              <Icon name="chevron" size={14} style={{ transform: mobileSection === "product" ? "rotate(180deg)" : "none", transition: "transform 0.2s", color: "#94A3B8" }} />
+            </button>
+            {mobileSection === "product" && (
+              <div style={{ padding: "12px 0 12px 16px", borderLeft: "2px solid #E5E7EB", margin: "4px 0 4px 4px" }}>
+                {PRODUCT_GROUPS.map((group, gi) => (
+                  <div key={gi} style={{ marginBottom: "12px" }}>
+                    <div style={{ fontSize: "10px", fontWeight: 800, color: "#94A3B8", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "6px" }}>
+                      {group.category}
+                    </div>
+                    {group.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        style={{
+                          display: "block",
+                          padding: "10px 0",
+                          fontSize: "14px",
+                          fontWeight: 500,
+                          color: "#334155",
+                          textDecoration: "none",
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Pricing */}
+            <Link
+              href="/pricing"
+              onClick={() => setMobileOpen(false)}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "16px 0",
+                fontSize: "16px",
+                fontWeight: 600,
+                color: "#0F172A",
+                textDecoration: "none",
+                borderBottom: "1px solid #F1F5F9",
+              }}
+            >
+              Pricing
+              <span style={{ fontSize: "9px", fontWeight: 800, background: "#ECFDF5", color: "#059669", padding: "2px 6px", borderRadius: "4px" }}>FREE TIER</span>
+            </Link>
+
+            {/* Resources accordion */}
+            <button
+              onClick={() => setMobileSection(mobileSection === "resources" ? null : "resources")}
+              style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "16px 0",
+                fontSize: "16px",
+                fontWeight: 600,
+                color: "#0F172A",
+                background: "transparent",
+                border: "none",
+                borderBottom: "1px solid #F1F5F9",
+                cursor: "pointer",
+                fontFamily: "inherit",
+              }}
+            >
+              Resources
+              <Icon name="chevron" size={14} style={{ transform: mobileSection === "resources" ? "rotate(180deg)" : "none", transition: "transform 0.2s", color: "#94A3B8" }} />
+            </button>
+            {mobileSection === "resources" && (
+              <div style={{ padding: "8px 0 8px 16px", borderLeft: "2px solid #E5E7EB", margin: "4px 0 4px 4px" }}>
+                {RESOURCES.map((r) => (
+                  <Link key={r.href} href={r.href} onClick={() => setMobileOpen(false)} style={{ display: "block", padding: "10px 0", fontSize: "14px", fontWeight: 500, color: "#334155", textDecoration: "none" }}>
+                    {r.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {/* Company accordion */}
+            <button
+              onClick={() => setMobileSection(mobileSection === "company" ? null : "company")}
+              style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "16px 0",
+                fontSize: "16px",
+                fontWeight: 600,
+                color: "#0F172A",
+                background: "transparent",
+                border: "none",
+                borderBottom: "1px solid #F1F5F9",
+                cursor: "pointer",
+                fontFamily: "inherit",
+              }}
+            >
+              Company
+              <Icon name="chevron" size={14} style={{ transform: mobileSection === "company" ? "rotate(180deg)" : "none", transition: "transform 0.2s", color: "#94A3B8" }} />
+            </button>
+            {mobileSection === "company" && (
+              <div style={{ padding: "8px 0 8px 16px", borderLeft: "2px solid #E5E7EB", margin: "4px 0 4px 4px" }}>
+                {COMPANY.map((c) => (
+                  <Link key={c.href} href={c.href} onClick={() => setMobileOpen(false)} style={{ display: "block", padding: "10px 0", fontSize: "14px", fontWeight: 500, color: "#334155", textDecoration: "none" }}>
+                    {c.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {/* Download link */}
+            <Link
+              href="/download"
+              onClick={() => setMobileOpen(false)}
+              style={{
+                display: "block",
+                padding: "16px 0",
+                fontSize: "16px",
+                fontWeight: 600,
+                color: "#0F172A",
+                textDecoration: "none",
+                borderBottom: "1px solid #F1F5F9",
+              }}
+            >
+              Download EazyRecorder
+            </Link>
+
+            {/* CTAs */}
+            <div style={{ marginTop: "28px", display: "flex", flexDirection: "column", gap: "12px" }}>
+              <Link
+                href="/signin"
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  display: "block",
+                  padding: "14px",
+                  textAlign: "center",
+                  fontSize: "15px",
+                  fontWeight: 600,
+                  color: "#0F172A",
+                  textDecoration: "none",
+                  border: "1px solid #CBD5E1",
+                  borderRadius: "8px",
+                }}
+              >
+                Sign In
+              </Link>
+              <Link
+                href="/signup"
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "8px",
+                  padding: "14px",
+                  fontSize: "15px",
+                  fontWeight: 600,
+                  color: "#FFFFFF",
+                  background: "#0F172A",
+                  textDecoration: "none",
+                  borderRadius: "8px",
+                }}
+              >
+                Start Free Trial <Icon name="arrow" size={14} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default HeaderFour;

@@ -1,9 +1,9 @@
-import ScrollToTop from "@/components/common/scroll-to-top";
+﻿import ScrollToTop from "@/components/common/scroll-to-top";
 import Terms from "@/components/terms";
 import Wrapper from "@/layout/Wrapper";
 
 export const metadata = {
-    title: "Terms of Serivce - Eacyclassroom.Net", 
+    title: "Terms of Service - Eacyclassroom.Net", 
 };
 
 const index = () => {

@@ -1,8 +1,7 @@
-
+﻿
 import FooterFour from "@/layout/footers/FooterFour";
 import HeaderFour from "@/layout/headers/HeaderFour";
 import DashbordAreaHomeThree from "./DashbordAreaHomeThree";
-import ContactAreaHomeFour from "./ContactAreaHomeFour";
 import FeatureAreaHomeFour from "./FeatureAreaHomeFour";
 import HeroBannerHomefour from "./HeroBannerHomefour";
 import ServicesAreaHomeOne from "./ServicesAreaHomeOne";
@@ -29,8 +28,7 @@ const HomeFour = () => {
                 <CourseAreaHomeFour />    {/* <-- NEW SECTION ADDED HERE */}
                         <CrmAreaHomeFour />        {/* <-- NEW SECTION ADDED HERE */}
         <FaqAreaHomeTwo />
-        <ContactAreaHomeFour />
-      </main>
+        </main>
       <FooterFour />
     </>
   );

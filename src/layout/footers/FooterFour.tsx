@@ -12,10 +12,7 @@ const FooterFour = () => {
             {/* Brand Column */}
             <div className="col-lg-4 col-md-12 mb-5 mb-lg-0">
               <Link href="/" className="ec-footer-logo">
-                <div className="ec-footer-logo-box">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                </div>
-                <span>EazyClassroom</span>
+                <img src="/assets/img/logo/logo-new.png" alt="EazyClassroom" style={{ height: "40px", width: "auto", objectFit: "contain", filter: "brightness(0) invert(1)" }} />
               </Link>
               <p className="ec-footer-desc">
                 The All-in-One Virtual Classroom Management System. 
@@ -47,7 +44,6 @@ const FooterFour = () => {
                 <li><Link href="/features/ai">Eazy AI Analysis</Link></li>
                 <li><Link href="/features/recording">Recording & Storage</Link></li>
                 <li><Link href="/features/marketing">Social Publishing</Link></li>
-                <li><Link href="/features/crm">Custom CRM</Link></li>
               </ul>
             </div>
 
@@ -55,7 +51,6 @@ const FooterFour = () => {
             <div className="col-lg-3 col-md-4 col-12 mb-4 mb-lg-0">
               <h4 className="ec-footer-heading">Company</h4>
               <ul className="ec-footer-links">
-                <li><Link href="/about">About Us</Link></li>
                 <li><Link href="/contact">Contact Support</Link></li>
                 <li><Link href="/docs">Documentation</Link></li>
                 <li><Link href="/privacy">Privacy Policy</Link></li>

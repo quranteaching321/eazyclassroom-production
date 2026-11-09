@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 
 import shape from '@/assets/img/shape/inner-dots-shape.png';
@@ -12,7 +12,7 @@ type breadcrumb_9_content_type = {
 const BreadcrumbNine = ({title, top_title}: breadcrumb_9_content_type) => {
     return (
         <>
-            <section className="breadcrumb-area breadcrumb-overlay p-relative pb-115 pt-195 jarallax"
+            <section className="breadcrumb-area breadcrumb-overlay p-relative pb-60 pt-60 jarallax"
                 style={{ backgroundImage: `url(/assets/img/breadcrumb/breadcrumb-bg-1.jpg)` }}>
                 <div className="container">
                     <div className="row">

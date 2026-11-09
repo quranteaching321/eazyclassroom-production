@@ -6485,3 +6485,30 @@ section.ec-bg-light:has(.ec-contact-form-wrapper) {
     .sp-btn-white-outline { width: 100%; justify-content: center; padding: 14px 24px; }
     .sp-cta-card { padding: 24px; margin-top: 20px; }
 }
+/* =========================================
+   NEW HEADER RESPONSIVE
+   ========================================= */
+@media (min-width: 1024px) {
+  .fid-desktop-nav {
+    display: flex !important;
+  }
+  .fid-desktop-ctas {
+    display: flex !important;
+  }
+  .fid-mobile-toggle-btn {
+    display: none !important;
+  }
+}
+
+/* =========================================
+   NEW HEADER RESPONSIVE
+   ========================================= */
+.fid-nav-desktop { display: none; }
+.fid-ctas-desktop { display: none; }
+.fid-mobile-toggle { display: flex; }
+
+@media (min-width: 1024px) {
+  .fid-nav-desktop { display: flex; }
+  .fid-ctas-desktop { display: flex; }
+  .fid-mobile-toggle { display: none; }
+}
