@@ -1,4 +1,4 @@
-const EmailIconSocial = () => {
+﻿const EmailIconSocial = () => {
   return (
     <>
       <svg

@@ -1,4 +1,4 @@
-const Privacy = () => {
+﻿const Privacy = () => {
   return (
     <>
       <section className="about-area about-inner-top">

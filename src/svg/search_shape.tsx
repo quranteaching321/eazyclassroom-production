@@ -1,4 +1,4 @@
-const SearchShape = () => {
+﻿const SearchShape = () => {
   return (
     <>
       <svg

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import SearchIconTwo from "@/svg/search_icon_2";
 

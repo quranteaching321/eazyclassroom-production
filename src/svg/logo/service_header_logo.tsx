@@ -1,4 +1,4 @@
-const ServiceHeaderLogo = () => {
+﻿const ServiceHeaderLogo = () => {
   return (
     <>
       <svg

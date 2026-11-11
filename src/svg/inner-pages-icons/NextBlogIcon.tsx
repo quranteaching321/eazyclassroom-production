@@ -1,4 +1,4 @@
-const NextBlogIcon = () => {
+﻿const NextBlogIcon = () => {
   return (
     <>
       <svg

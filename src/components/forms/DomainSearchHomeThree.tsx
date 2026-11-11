@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import SearchDomainIcon from "@/svg/search_domain_icon";
 const DomainSearchHomeThree = () => {
   return (

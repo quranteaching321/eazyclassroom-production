@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import FooterLogo from "@/svg/footer_logo";
 import { CopyRight, SocialLinksTwo } from "@/components/common/social-links";

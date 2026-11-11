@@ -1,4 +1,4 @@
-import LoadMoreIcon from "@/svg/inner-pages-icons/LoadMoreIcon";
+﻿import LoadMoreIcon from "@/svg/inner-pages-icons/LoadMoreIcon";
 
 
 const LoadMoreBtn = ({ handleLoadMore }: any) => {

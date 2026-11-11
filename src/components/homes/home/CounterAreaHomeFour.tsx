@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Count from "@/components/common/count";
 import HappyIcon from "@/svg/counter_icon/HappyIcon";
 import SuccessfulIcon from "@/svg/counter_icon/SuccessfulIcon";

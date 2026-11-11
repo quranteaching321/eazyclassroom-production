@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import avater_img from "@/assets/img/blog/comments/blog-details-avatar-1.png";
 import ClockBlogIcon from "@/svg/blogs_icon/ClockBlogIcon";

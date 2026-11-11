@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 import EmailTwo from "@/svg/email_2";
 import RoundSearchIcon from "@/svg/round_search_icon";
 

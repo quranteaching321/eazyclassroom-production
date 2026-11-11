@@ -1,4 +1,4 @@
-import HeaderFour from "@/layout/headers/HeaderFour";
+﻿import HeaderFour from "@/layout/headers/HeaderFour";
 import FooterFour from "@/layout/footers/FooterFour";
 import Link from "next/link";
 
@@ -61,7 +61,7 @@ export default function PricingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/signup" style={{ display: "block", textAlign: "center", padding: "14px", background: "#FFFFFF", color: "#0F172A", border: "1px solid #CBD5E1", borderRadius: "8px", fontWeight: 600, fontSize: "15px", textDecoration: "none" }}>
+                  <Link href="https://app.eazyclassroom.net/signup" style={{ display: "block", textAlign: "center", padding: "14px", background: "#FFFFFF", color: "#0F172A", border: "1px solid #CBD5E1", borderRadius: "8px", fontWeight: 600, fontSize: "15px", textDecoration: "none" }}>
                     Start Native Room
                   </Link>
                 </div>
@@ -92,7 +92,7 @@ export default function PricingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/signup" style={{ display: "block", textAlign: "center", padding: "14px", background: "#2563EB", color: "#FFFFFF", borderRadius: "8px", fontWeight: 600, fontSize: "15px", textDecoration: "none", boxShadow: "0 4px 12px rgba(37, 99, 235, 0.3)" }}>
+                  <Link href="https://app.eazyclassroom.net/signup" style={{ display: "block", textAlign: "center", padding: "14px", background: "#2563EB", color: "#FFFFFF", borderRadius: "8px", fontWeight: 600, fontSize: "15px", textDecoration: "none", boxShadow: "0 4px 12px rgba(37, 99, 235, 0.3)" }}>
                     Lock in $1 Promo
                   </Link>
                 </div>
@@ -201,8 +201,8 @@ export default function PricingPage() {
               Get 14 days of full access. No credit card required.
             </p>
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/signup" style={{ display: "inline-block", background: "#2563EB", color: "#FFFFFF", padding: "14px 32px", borderRadius: "8px", fontWeight: 600, fontSize: "15px", textDecoration: "none" }}>
-                Start Free Trial
+              <Link href="https://app.eazyclassroom.net/signup" style={{ display: "inline-block", background: "#2563EB", color: "#FFFFFF", padding: "14px 32px", borderRadius: "8px", fontWeight: 600, fontSize: "15px", textDecoration: "none" }}>
+                Start Free
               </Link>
               <Link href="/contact" style={{ display: "inline-block", background: "transparent", color: "#0F172A", padding: "14px 32px", borderRadius: "8px", fontWeight: 600, fontSize: "15px", textDecoration: "none", border: "1px solid #CBD5E1" }}>
                 Talk to Sales

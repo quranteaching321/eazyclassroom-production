@@ -1,4 +1,4 @@
-import HeaderFour from "@/layout/headers/HeaderFour";
+﻿import HeaderFour from "@/layout/headers/HeaderFour";
 import FooterFour from "@/layout/footers/FooterFour";
 import Link from "next/link";
 
@@ -28,7 +28,7 @@ export default function MarketingPage() {
                   Publish a single post to six platforms at once. Clip highlights during a live class that auto-publish to every connected account. Stream any room to YouTube. Your academy&apos;s growth engine, built in.
                 </p>
                 <div className="d-flex gap-3 flex-wrap mt-4">
-                  <Link href="/signup" className="sp-btn-primary">Start Free Trial</Link>
+                  <Link href="https://app.eazyclassroom.net/signup" className="sp-btn-primary">Start Free</Link>
                   <Link href="/contact" className="sp-btn-secondary">Book a Demo</Link>
                 </div>
               </div>
@@ -297,8 +297,8 @@ export default function MarketingPage() {
                   Stop manually uploading videos. Let your live classes become your marketing engine — automatically.
                 </p>
                 <div className="d-flex gap-3 flex-wrap mt-4">
-                  <Link href="/signup" className="sp-btn-white-solid">
-                    Start Free Trial
+                  <Link href="https://app.eazyclassroom.net/signup" className="sp-btn-white-solid">
+                    Start Free
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </Link>
                   <Link href="/contact" className="sp-btn-white-outline">Talk to Sales</Link>

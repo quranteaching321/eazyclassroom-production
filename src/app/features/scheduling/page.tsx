@@ -31,7 +31,7 @@ export default function SchedulingPage() {
                   EazyRecorder enforces your exact time slots and time zones automatically.
                 </p>
                 <div className="d-flex gap-3 flex-wrap mt-4">
-                  <Link href="/signup" className="sp-btn-primary">Start Free Trial</Link>
+                  <Link href="https://app.eazyclassroom.net/signup" className="sp-btn-primary">Start Free</Link>
                   <Link href="/contact" className="sp-btn-secondary">Book a Demo</Link>
                 </div>
               </div>
@@ -377,7 +377,7 @@ export default function SchedulingPage() {
             <h2>Stop worrying about time zones.</h2>
             <p>Take full control of your academy's schedule today.</p>
             <div className="d-flex justify-content-center gap-3 flex-wrap mt-4">
-              <Link href="/signup" className="sp-btn-white">Start Free Trial</Link>
+              <Link href="https://app.eazyclassroom.net/signup" className="sp-btn-white">Start Free</Link>
               <Link href="/contact" className="sp-btn-outline-white">Talk to Sales</Link>
             </div>
           </div>

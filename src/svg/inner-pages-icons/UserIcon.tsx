@@ -1,4 +1,4 @@
-const UserIcon = () => {
+﻿const UserIcon = () => {
   return (
     <>
       <svg

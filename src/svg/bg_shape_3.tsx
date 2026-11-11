@@ -1,4 +1,4 @@
-const BGShapeThree = () => {
+﻿const BGShapeThree = () => {
   return (
     <>
       <svg

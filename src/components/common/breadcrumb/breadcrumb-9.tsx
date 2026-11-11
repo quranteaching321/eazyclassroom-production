@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 
 import shape from '@/assets/img/shape/inner-dots-shape.png';

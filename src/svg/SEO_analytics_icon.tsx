@@ -1,4 +1,4 @@
-const SEOAnalyticsIcon = () => {
+﻿const SEOAnalyticsIcon = () => {
   return (
     <>
       <svg

@@ -1,4 +1,4 @@
-const Terms = () => {
+﻿const Terms = () => {
   return (
     <>
       <section className="about-area about-inner-top">

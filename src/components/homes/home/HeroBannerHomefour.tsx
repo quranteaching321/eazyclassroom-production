@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const HeroBannerHomefour = () => {
   return (
@@ -22,7 +22,7 @@ const HeroBannerHomefour = () => {
           </p>
 
           <div className="fid-hero-actions">
-            <Link href="/signup" className="fid-btn-solid-xl">Start Free Trial</Link>
+            <Link href="https://app.eazyclassroom.net/signup" className="fid-btn-solid-xl">Start Free</Link>
             <Link href="/download" className="fid-btn-outline-xl">Get EazyRecorder</Link>
           </div>
 

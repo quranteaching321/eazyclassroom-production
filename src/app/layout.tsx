@@ -1,4 +1,4 @@
-import "../styles/index.scss";
+﻿import "../styles/index.scss";
 import "../styles/custom.css";
 export default function RootLayout({
   children,

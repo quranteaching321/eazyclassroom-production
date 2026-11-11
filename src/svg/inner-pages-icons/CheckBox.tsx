@@ -1,4 +1,4 @@
-const CheckBox = () => {
+﻿const CheckBox = () => {
   return (
     <>
       <svg

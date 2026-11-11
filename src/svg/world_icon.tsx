@@ -1,4 +1,4 @@
-const WorldIcon = () => {
+﻿const WorldIcon = () => {
   return (
     <>
       <svg

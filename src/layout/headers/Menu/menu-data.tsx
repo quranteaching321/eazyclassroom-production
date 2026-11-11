@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image";
+﻿import { StaticImageData } from "next/image";
 import RightArrowMenu from "@/svg/home-1/RightArrowMenu";
 // home demo
 //import home_demo_1 from "@/assets/img/menu/home-1.jpg";

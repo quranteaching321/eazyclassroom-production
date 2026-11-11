@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -36,8 +36,8 @@ const HeaderOne = () => {
 
                 {/* Desktop CTAs */}
                 <div className="eazy-desktop-ctas">
-                    <Link href="/signin" className="eazy-login-btn">Log In</Link>
-                    <Link href="/signup" className="eazy-cta-btn">Start Free Trial</Link>
+                    <Link href="https://app.eazyclassroom.net/signin" className="eazy-login-btn">Log In</Link>
+                    <Link href="https://app.eazyclassroom.net/signup" className="eazy-cta-btn">Start Free</Link>
                 </div>
 
                 {/* Mobile Toggle */}
@@ -58,8 +58,8 @@ const HeaderOne = () => {
                     <Link href="/download">EazyRecorder</Link>
                     <Link href="/docs">Docs</Link>
                     <div className="eazy-mobile-divider"></div>
-                    <Link href="/signin" className="eazy-mobile-login">Log In</Link>
-                    <Link href="/signup" className="eazy-mobile-cta">Start Free Trial</Link>
+                    <Link href="https://app.eazyclassroom.net/signin" className="eazy-mobile-login">Log In</Link>
+                    <Link href="https://app.eazyclassroom.net/signup" className="eazy-mobile-cta">Start Free</Link>
                 </div>
             )}
         </header>

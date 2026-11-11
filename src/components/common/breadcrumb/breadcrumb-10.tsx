@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import ClockBlogIcon from "@/svg/blogs_icon/ClockBlogIcon";
 import CommentBlogIcon from "@/svg/blogs_icon/CommentBlogIcon";
 import ViewsBlogIcon from "@/svg/blogs_icon/ViewsBlogIcon";

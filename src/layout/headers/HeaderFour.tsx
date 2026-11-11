@@ -339,7 +339,7 @@ const HeaderFour = () => {
 
           {/* Desktop CTAs */}
           <div className="fid-ctas-desktop" style={{ alignItems: "center", gap: "6px", flexShrink: 0 }}>
-            <Link href="/signin" style={{
+            <Link href="https://app.eazyclassroom.net/signin" style={{
               padding: "8px 12px",
               fontSize: "14px",
               fontWeight: 500,
@@ -349,7 +349,7 @@ const HeaderFour = () => {
             }}>
               Sign In
             </Link>
-            <Link href="/signup" style={{
+            <Link href="https://app.eazyclassroom.net/signup" style={{
               padding: "8px 16px",
               fontSize: "14px",
               fontWeight: 600,
@@ -684,7 +684,7 @@ const HeaderFour = () => {
             {/* CTAs */}
             <div style={{ marginTop: "28px", display: "flex", flexDirection: "column", gap: "12px" }}>
               <Link
-                href="/signin"
+                href="https://app.eazyclassroom.net/signin"
                 onClick={() => setMobileOpen(false)}
                 style={{
                   display: "block",
@@ -701,7 +701,7 @@ const HeaderFour = () => {
                 Sign In
               </Link>
               <Link
-                href="/signup"
+                href="https://app.eazyclassroom.net/signup"
                 onClick={() => setMobileOpen(false)}
                 style={{
                   display: "flex",
@@ -717,7 +717,7 @@ const HeaderFour = () => {
                   borderRadius: "8px",
                 }}
               >
-                Start Free Trial <Icon name="arrow" size={14} />
+                Start Free <Icon name="arrow" size={14} />
               </Link>
             </div>
           </div>

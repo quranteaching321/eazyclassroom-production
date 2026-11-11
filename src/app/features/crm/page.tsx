@@ -1,4 +1,4 @@
-import HeaderFour from "@/layout/headers/HeaderFour";
+﻿import HeaderFour from "@/layout/headers/HeaderFour";
 import FooterFour from "@/layout/footers/FooterFour";
 import CrmAreaHomeFour from "@/components/homes/home/CrmAreaHomeFour";
 import Link from "next/link";
@@ -18,7 +18,7 @@ export default function CrmPage() {
         <section className="ec-bg-light" style={{ padding: "80px 0", textAlign: "center" }}>
           <div className="container">
             <h2 className="ec-title" style={{ marginBottom: "20px" }}>Keep your CRM. We'll plug right into it.</h2>
-            <Link href="/signup" className="ec-dash-btn">Start Free Trial</Link>
+            <Link href="https://app.eazyclassroom.net/signup" className="ec-dash-btn">Start Free</Link>
           </div>
         </section>
       </main>

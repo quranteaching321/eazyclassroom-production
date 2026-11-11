@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import SeomyLogo from "@/svg/seomy_logo";
 import SubscribeForm from "@/components/forms/SubscribeForm";
 import SocialLinks, { CopyRight } from "@/components/common/social-links";

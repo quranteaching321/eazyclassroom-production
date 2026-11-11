@@ -1,4 +1,4 @@
-const VideoIcon = () => {
+﻿const VideoIcon = () => {
   return (
     <>
       <svg

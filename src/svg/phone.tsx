@@ -1,4 +1,4 @@
-const Phone = () => {
+﻿const Phone = () => {
   return (
     <>
       <svg

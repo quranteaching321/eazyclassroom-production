@@ -92,7 +92,7 @@ const ServicesAreaHomeFour = ({ style }: any) => {
                             <div className="servics-details-4 d-flex align-items-center justify-content-center flex-wrap gap-3">
                                 <Image src={header_rocket} alt="EazyClassroom" />
                                 <p>{service_content.sm_info}</p>
-                               <Link href="/signup" className="services-inline-cta">
+                               <Link href="https://app.eazyclassroom.net/signup" className="services-inline-cta">
     <span className="services-inline-cta-text">Start Free</span>
     <span className="services-inline-cta-icon"><RightArrowThree /></span>
 </Link>

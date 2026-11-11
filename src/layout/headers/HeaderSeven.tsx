@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Link from "next/link";
 import NavMenu from "./Menu/nav-menu"; 
 import HeaderSixLogo from "@/svg/logo/header_6";

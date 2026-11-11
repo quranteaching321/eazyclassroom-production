@@ -1,4 +1,4 @@
-const LoadMoreIcon = () => {
+﻿const LoadMoreIcon = () => {
   return (
     <>
       <svg

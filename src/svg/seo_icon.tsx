@@ -1,4 +1,4 @@
-const SeoIcon = () => {
+﻿const SeoIcon = () => {
   return (
     <>
       <svg

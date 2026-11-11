@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 // optimize shape images 
 import optimize_img_1 from "@/assets/img/bg/optimize-bg.png"; 

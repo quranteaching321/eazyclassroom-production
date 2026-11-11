@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 import { useEffect, useState } from "react";
 import BGShapeFive from "@/svg/bg_shape_5";
 import Image, { StaticImageData } from "next/image";

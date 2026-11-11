@@ -1,4 +1,4 @@
-const HappyIcon = () => {
+﻿const HappyIcon = () => {
   return (
     <>
       <svg

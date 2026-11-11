@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import React from 'react';
 import EmailIconOne from '@/svg/email_icon_1';
 import SerchIcon from '@/svg/serch_icon';

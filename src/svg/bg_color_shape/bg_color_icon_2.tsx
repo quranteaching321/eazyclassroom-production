@@ -1,4 +1,4 @@
-const BgColorIconTwo = () => {
+﻿const BgColorIconTwo = () => {
   return (
     <>
       <svg

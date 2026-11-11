@@ -1,4 +1,4 @@
-const LeftArrowIcon = () => {
+﻿const LeftArrowIcon = () => {
   return (
     <>
       <svg

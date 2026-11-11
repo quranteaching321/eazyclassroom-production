@@ -1,4 +1,4 @@
-const QuteTwo = () => {
+﻿const QuteTwo = () => {
   return (
     <>
       <svg

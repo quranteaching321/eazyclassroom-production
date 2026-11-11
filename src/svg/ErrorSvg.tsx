@@ -1,4 +1,4 @@
-const ErrorSvg = () => {
+﻿const ErrorSvg = () => {
     return (
       <svg
         width="534"

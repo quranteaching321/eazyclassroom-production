@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Image, { StaticImageData }  from 'next/image';
  
 import breadcrumb_bg from "@/assets/img/services/social-media/services-social-media-bg.png";

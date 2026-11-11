@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React, { useEffect } from "react";
 
 const ScrollIndicator: React.FC = () => {

@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 
 import dots_shape_img from "@/assets/img/shape/inner-dots-shape.png";

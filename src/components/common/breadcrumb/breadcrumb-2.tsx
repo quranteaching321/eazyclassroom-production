@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 import Image  from 'next/image';
 import hand_img from "@/assets/img/shape/inner-hand-1.png";
 import breadcrumb_shape_1 from "@/assets/img/shape/about-inner-shape-1.png";

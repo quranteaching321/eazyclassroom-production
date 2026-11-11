@@ -1,4 +1,4 @@
-const SuccessfulIcon = () => {
+﻿const SuccessfulIcon = () => {
   return (
     <>
       <svg

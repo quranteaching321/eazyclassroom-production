@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+﻿import Image, { StaticImageData } from "next/image";
 // award images
 import award_img_1 from "@/assets/img/shape/award-shape-1.png";
 import award_img_2 from "@/assets/img/shape/award-shape-2.png";

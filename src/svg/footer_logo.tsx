@@ -1,4 +1,4 @@
-const FooterLogo = () => {
+﻿const FooterLogo = () => {
   return (
     <>
       <svg

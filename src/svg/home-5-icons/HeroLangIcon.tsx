@@ -1,4 +1,4 @@
-const HeroLangIcon = () => {
+﻿const HeroLangIcon = () => {
   return (
     <>
       <svg

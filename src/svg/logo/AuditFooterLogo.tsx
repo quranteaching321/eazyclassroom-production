@@ -1,4 +1,4 @@
-const AuditFooterLogo = () => {
+﻿const AuditFooterLogo = () => {
   return (
     <>
       <svg

@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 import Image from "next/image";
 import Slider from "react-slick";
 import Wavify from 'react-wavify';
