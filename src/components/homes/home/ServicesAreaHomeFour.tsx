@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import SmollRound from "@/svg/smoll_round";
 import MarketingIcon from "@/svg/marketing_icon";
@@ -35,15 +35,15 @@ const service_content: service_content_type = {
     shape: service_shape_1,
     icon: <MarketingIcon />,
     title: "Create Free Account",  // ← Changed
-    sm_des: "Signup for a free account in which you can connect two rooms (1 Native + 1 Zoom/Meet/Teams), authorize one social account for social media publishg and one youtube streaming. ",
+    sm_des: "Sign up for a free account in which you can connect two rooms (1 Native + 1 Zoom/Meet/Teams), authorize one social account for social media publishing and one youtube streaming. ",
 },
         {
             id: 2,
             step: "02",
             shape: service_shape_2,
             icon: <SEOAnalyticsIcon />,
-            title: "Setup your Rooms",
-            sm_des: "Create Native rooms or authorize your existing Zoom, Meet, or Teams. Set access schedules, time zones, and generate room logins and more..",
+            title: "Set up your Rooms",
+            sm_des: "Create Native rooms or authorize your existing Zoom, Meet, or Teams. Set access schedules, time zones, and generate room logins and more...",
         },
         {
             id: 3,
@@ -54,7 +54,7 @@ const service_content: service_content_type = {
             sm_des: "Tutors download the free Windows client, sign in with the room login you created, and start teaching. Everything else is automatic.",
         },
     ],
-    sm_info: <>Keep using your existing Zoom, Meet, or Teams rooms, while EazyClassroom acts as your complete command center—handling auto local & cloud recordings, live monitoring, flat-rate AI, and automated social publishing & Youtube streaming all in one place.</>,
+    sm_info: <>Keep using your existing Zoom, Meet, or Teams rooms, while EazyClassroom acts as your complete command center—handling auto local & cloud recordings, live monitoring, flat-rate AI, and automated social publishing & YouTube streaming all in one place.</>,
 }
 
 const ServicesAreaHomeFour = ({ style }: any) => {
