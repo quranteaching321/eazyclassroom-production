@@ -1,4 +1,5 @@
 ﻿import HeaderFour from "@/layout/headers/HeaderFour";
+import DownloadGate from "@/components/DownloadGate";
 import FooterFour from "@/layout/footers/FooterFour";
 import Link from "next/link";
 
@@ -33,7 +34,7 @@ export default function DownloadPage() {
             <p style={{ fontSize: "19px", color: "#475569", lineHeight: 1.6, margin: "0 0 32px" }}>
               EazyRecorder is the free desktop companion for your virtual classroom. Paste your Zoom, Meet, Teams, or Native room link, and the app automatically starts recording the session the moment you go live.
             </p>
-            <a href="https://app.eazyclassroom.net/download" style={{ display: "inline-flex", alignItems: "center", gap: "10px", background: "#0F172A", color: "#FFFFFF", padding: "16px 36px", borderRadius: "8px", fontWeight: 700, fontSize: "16px", textDecoration: "none" }}>
+            <a download href="https://api.eazyclassroom.net/downloads/EazyRecorderSetup.exe" style={{ display: "inline-flex", alignItems: "center", gap: "10px", background: "#0F172A", color: "#FFFFFF", padding: "16px 36px", borderRadius: "8px", fontWeight: 700, fontSize: "16px", textDecoration: "none" }}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
               Download for Windows
             </a>
@@ -80,7 +81,7 @@ export default function DownloadPage() {
                     ))}
                   </ul>
 
-                  <a href="https://app.eazyclassroom.net/download" style={{ display: "block", textAlign: "center", padding: "14px", background: "#F8FAFC", color: "#0F172A", border: "1px solid #CBD5E1", borderRadius: "8px", fontWeight: 600, fontSize: "15px", textDecoration: "none" }}>
+                  <a download href="https://api.eazyclassroom.net/downloads/EazyRecorderSetup.exe" style={{ display: "block", textAlign: "center", padding: "14px", background: "#F8FAFC", color: "#0F172A", border: "1px solid #CBD5E1", borderRadius: "8px", fontWeight: 600, fontSize: "15px", textDecoration: "none" }}>
                     Download Free App
                   </a>
                 </div>
@@ -258,7 +259,7 @@ export default function DownloadPage() {
               Download EazyRecorder now, or start your 14-day free trial to unlock the cloud.
             </p>
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="https://app.eazyclassroom.net/download" style={{ display: "inline-block", background: "#FFFFFF", color: "#0F172A", padding: "14px 32px", borderRadius: "8px", fontWeight: 600, fontSize: "15px", textDecoration: "none" }}>
+              <a download href="https://api.eazyclassroom.net/downloads/EazyRecorderSetup.exe" style={{ display: "inline-block", background: "#FFFFFF", color: "#0F172A", padding: "14px 32px", borderRadius: "8px", fontWeight: 600, fontSize: "15px", textDecoration: "none" }}>
                 Download for Windows
               </a>
               <Link href="https://app.eazyclassroom.net/signup" style={{ display: "inline-block", background: "transparent", color: "#FFFFFF", padding: "14px 32px", borderRadius: "8px", fontWeight: 600, fontSize: "15px", textDecoration: "none", border: "1px solid #334155" }}>
@@ -273,3 +274,4 @@ export default function DownloadPage() {
     </>
   );
 }
+

@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 const FooterFour = () => {
   return (
@@ -12,7 +12,7 @@ const FooterFour = () => {
             {/* Brand Column */}
             <div className="col-lg-4 col-md-12 mb-5 mb-lg-0">
               <Link href="/" className="ec-footer-logo">
-                <img src="/assets/img/logo/logo-new.png" alt="EazyClassroom" style={{ height: "40px", width: "auto", objectFit: "contain", filter: "brightness(0) invert(1)" }} />
+                <img src="/assets/img/logo/logo_2.jpg" alt="EazyClassroom" style={{ height: "40px", width: "auto", objectFit: "contain" }} />
               </Link>
               <p className="ec-footer-desc">
                 The All-in-One Virtual Classroom Management System. 

@@ -1,4 +1,4 @@
-﻿import HeaderFour from "@/layout/headers/HeaderFour";
+import HeaderFour from "@/layout/headers/HeaderFour";
 import FooterFour from "@/layout/footers/FooterFour";
 import ContactAreaHomeFour from "@/components/homes/home/ContactAreaHomeFour";
 
@@ -11,7 +11,7 @@ export default function ContactPage() {
   return (
     <>
       <HeaderFour />
-      <main style={{ paddingTop: "68px" }}>
+      <main>
         <ContactAreaHomeFour />
       </main>
       <FooterFour />

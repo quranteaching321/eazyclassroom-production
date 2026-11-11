@@ -17,7 +17,16 @@ export default function PricingPage() {
   return (
     <>
       <HeaderFour />
-      <main style={{ paddingTop: "68px", background: "#FFFFFF", fontFamily: "system-ui, -apple-system, sans-serif" }}>
+      <main className="pricing-page" style={{ display: "flex", flexDirection: "column", background: "#FFFFFF", fontFamily: "system-ui, -apple-system, sans-serif" }}>
+        <style dangerouslySetInnerHTML={{ __html: `
+          @media (max-width: 991px) {
+            .pricing-page > section:nth-of-type(1) { order: 1; }
+            .pricing-page > section:nth-of-type(2) { order: 3; }
+            .pricing-page > section:nth-of-type(3) { order: 2; }
+            .pricing-page > section:nth-of-type(4) { order: 4; }
+            .pricing-page > section:nth-of-type(5) { order: 5; }
+          }
+        ` }} />
 
         {/* ============ HERO ============ */}
         <section style={{ padding: "100px 24px 60px", background: "#F8FAFC", textAlign: "center", borderBottom: "1px solid #E2E8F0" }}>
@@ -37,13 +46,13 @@ export default function PricingPage() {
         </section>
 
         {/* ============ ROOM PRICING (THE PROMO) ============ */}
-        <section style={{ padding: "80px 24px" }}>
+        <section style={{ padding: "80px clamp(16px, 3vw, 24px)" }}>
           <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
             <div className="row g-4 justify-content-center">
               
               {/* Native Rooms */}
               <div className="col-lg-5">
-                <div style={{ height: "100%", padding: "40px", background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "20px", display: "flex", flexDirection: "column" }}>
+                <div style={{ height: "100%", padding: "clamp(20px, 5vw, 40px)", background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "20px", display: "flex", flexDirection: "column" }}>
                   <div style={{ fontSize: "12px", fontWeight: 700, color: "#64748B", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "16px" }}>
                     EazyClassroom Native Rooms
                   </div>
@@ -69,7 +78,7 @@ export default function PricingPage() {
 
               {/* External Rooms (PROMO) */}
               <div className="col-lg-5">
-                <div style={{ height: "100%", padding: "40px", background: "#EFF6FF", border: "2px solid #2563EB", borderRadius: "20px", display: "flex", flexDirection: "column", position: "relative", boxShadow: "0 20px 40px -20px rgba(37, 99, 235, 0.3)" }}>
+                <div style={{ height: "100%", padding: "clamp(20px, 5vw, 40px)", background: "#EFF6FF", border: "2px solid #2563EB", borderRadius: "20px", display: "flex", flexDirection: "column", position: "relative", boxShadow: "0 20px 40px -20px rgba(37, 99, 235, 0.3)" }}>
                   <div style={{ position: "absolute", top: "-14px", left: "50%", transform: "translateX(-50%)", background: "#F59E0B", color: "#0F172A", fontSize: "11px", fontWeight: 800, padding: "6px 16px", borderRadius: "100px", letterSpacing: "0.05em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
                     Limited Time Promo
                   </div>
@@ -103,7 +112,7 @@ export default function PricingPage() {
         </section>
 
         {/* ============ FREE EAzyRECORDER SECTION ============ */}
-        <section style={{ padding: "80px 24px", background: "#0B1120", borderTop: "1px solid #1E293B", borderBottom: "1px solid #1E293B" }}>
+        <section style={{ padding: "80px clamp(16px, 3vw, 24px)", background: "#0B1120", borderTop: "1px solid #1E293B", borderBottom: "1px solid #1E293B" }}>
           <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
             <div className="row align-items-center">
               
@@ -192,7 +201,7 @@ export default function PricingPage() {
         </section>
 
         {/* ============ FINAL CTA ============ */}
-        <section style={{ padding: "80px 24px", background: "#F8FAFC", borderTop: "1px solid #E2E8F0" }}>
+        <section style={{ padding: "80px clamp(16px, 3vw, 24px)", background: "#F8FAFC", borderTop: "1px solid #E2E8F0" }}>
           <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
             <h2 style={{ fontSize: "clamp(32px, 4vw, 44px)", fontWeight: 800, color: "#0F172A", letterSpacing: "-0.03em", lineHeight: 1.1, margin: "0 0 16px" }}>
               Start your free trial today.
@@ -216,3 +225,7 @@ export default function PricingPage() {
     </>
   );
 }
+
+
+
+
