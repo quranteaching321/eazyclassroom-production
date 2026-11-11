@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from "react";
 
 const ContactAreaHomeFour = () => {
@@ -38,18 +38,18 @@ const ContactAreaHomeFour = () => {
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                   </div>
                   <div>
-                    <span style={{ display: "block", fontSize: "13px", color: "#64748B", fontWeight: 600, marginBottom: "2px" }}>WhatsApp</span>
-                    <a href="https://wa.me/1234567890" target="_blank" rel="noreferrer" style={{ display: "block", fontSize: "16px", color: "#0F172A", fontWeight: 700, textDecoration: "none" }}>+1 (234) 567-890</a>
+                    <span style={{ display: "block", fontSize: "13px", color: "#64748B", fontWeight: 600, marginBottom: "2px" }}>Documentation</span>
+                    <a href="https://app.eazyclassroom.net/docs" target="_blank" rel="noreferrer" style={{ display: "block", fontSize: "16px", color: "#0F172A", fontWeight: 700, textDecoration: "none" }}>Read our guides</a>
                   </div>
                 </div>
 
                 <div style={{ display: "flex", alignItems: "center", gap: "16px", background: "#FFFFFF", border: "1px solid #E2E8F0", padding: "20px", borderRadius: "12px", boxShadow: "0 4px 6px -1px rgba(0,0,0,0.02)" }}>
                   <div style={{ width: "48px", height: "48px", background: "#F5F3FF", color: "#8B5CF6", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                   </div>
                   <div>
-                    <span style={{ display: "block", fontSize: "13px", color: "#64748B", fontWeight: 600, marginBottom: "2px" }}>Headquarters</span>
-                    <span style={{ display: "block", fontSize: "16px", color: "#0F172A", fontWeight: 700 }}>Global / Remote</span>
+                    <span style={{ display: "block", fontSize: "13px", color: "#64748B", fontWeight: 600, marginBottom: "2px" }}>Response Time</span>
+                    <span style={{ display: "block", fontSize: "16px", color: "#0F172A", fontWeight: 700 }}>Within 2 Hours</span>
                   </div>
                 </div>
 
