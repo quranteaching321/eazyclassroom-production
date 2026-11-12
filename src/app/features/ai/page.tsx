@@ -11,7 +11,7 @@ export default function AIPage() {
   return (
     <>
       <HeaderFour />
-      <main style={{ paddingTop: "68px" }}>
+      <main style={{ paddingTop: "0px" }}>
 
         {/* ============ 1. HERO (Split Layout) ============ */}
         <section className="sp-hero-new">

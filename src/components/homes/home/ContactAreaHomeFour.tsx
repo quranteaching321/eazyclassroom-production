@@ -126,7 +126,7 @@ const ContactAreaHomeFour = () => {
                   </div>
                   <div className="col-md-6">
                     <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "#0F172A", marginBottom: "8px" }}>Academy Name</label>
-                    <input type="text" name="academyName" placeholder="Al-Noor Academy" style={{ width: "100%", padding: "14px 16px", background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "8px", fontSize: "14px", color: "#0F172A", outline: "none" }} />
+                    <input type="text" name="academyName" placeholder="Bright Minds Academy" style={{ width: "100%", padding: "14px 16px", background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "8px", fontSize: "14px", color: "#0F172A", outline: "none" }} />
                   </div>
                 </div>
 

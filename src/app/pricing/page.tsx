@@ -1,4 +1,4 @@
-﻿import HeaderFour from "@/layout/headers/HeaderFour";
+import HeaderFour from "@/layout/headers/HeaderFour";
 import FooterFour from "@/layout/footers/FooterFour";
 import Link from "next/link";
 
@@ -64,7 +64,7 @@ export default function PricingPage() {
                     Fully hosted, secure classrooms built right into the EazyClassroom dashboard.
                   </p>
                   <ul style={{ listStyle: "none", padding: 0, margin: "0 0 32px", display: "flex", flexDirection: "column", gap: "14px", flexGrow: 1 }}>
-                    {["Unlimited participants", "Native whiteboard & screen share", "50 GB cloud recording per room", "Built-in AI analysis", "Live monitoring & alerts"].map((f) => (
+                    {["Live audio, video & screen share", "Native whiteboard & screen share", "50 GB cloud recording per room", "Built-in AI analysis", "Live monitoring & alerts"].map((f) => (
                       <li key={f} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "14px", color: "#334155" }}>
                         <Tick /> {f}
                       </li>
@@ -92,10 +92,10 @@ export default function PricingPage() {
                     <span style={{ fontSize: "18px", color: "#94A3B8", textDecoration: "line-through", fontWeight: 500, marginLeft: "4px" }}>$5</span>
                   </div>
                   <p style={{ fontSize: "15px", color: "#1E40AF", lineHeight: 1.6, marginBottom: "32px" }}>
-                    Keep using your existing Zoom, Google Meet, or Microsoft Teams links. We add the recording and AI.
+                    Authorize your Zoom, Google Meet, or Microsoft Teams rooms.
                   </p>
                   <ul style={{ listStyle: "none", padding: 0, margin: "0 0 32px", display: "flex", flexDirection: "column", gap: "14px", flexGrow: 1 }}>
-                    {["Bring your own meeting link", "Tamper-proof cloud recording", "Live monitoring & alerts", "AI analysis (BYOK)", "Social media publishing"].map((f) => (
+                    {["1-click OAuth or link paste", "Tamper-proof cloud recording", "Live Session Monitoring", "Real Time Disconnection Alerts", "50 GB cloud recording per room"].map((f) => (
                       <li key={f} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "14px", color: "#1E3A8A" }}>
                         <Tick color="#2563EB" /> {f}
                       </li>
@@ -177,7 +177,7 @@ export default function PricingPage() {
             <div className="row g-4">
               {[
                 { name: "Eazy AI", price: "$10", unit: "/mo", desc: "Live analysis, ratings, and off-topic detection. Bring your own Gemini key." },
-                { name: "YouTube Streaming", price: "$20", unit: "/mo", desc: "Stream unlimited rooms to YouTube. One flat price per admin." },
+                { name: "Unlimited YouTube Streaming", price: "$10", unit: "/mo", desc: "Stream any room to YouTube. One flat price per admin." },
                 { name: "Social Accounts", price: "$1", unit: "/account/mo", desc: "Facebook, Instagram, YouTube, LinkedIn, Pinterest, TikTok." },
                 { name: "Extra Storage", price: "$0.12", unit: "/GB/mo", desc: "First 50 GB per room free. Buy more as you grow. FIFO protects you." },
               ].map((addon) => (

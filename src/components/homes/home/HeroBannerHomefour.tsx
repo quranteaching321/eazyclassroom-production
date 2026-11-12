@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 const HeroBannerHomefour = () => {
   return (
@@ -23,7 +23,7 @@ const HeroBannerHomefour = () => {
 
           <div className="fid-hero-actions">
             <Link href="https://app.eazyclassroom.net/signup" className="fid-btn-solid-xl">Start Free</Link>
-            <Link href="/download" className="fid-btn-outline-xl">Get EazyRecorder</Link>
+            <Link href="/download" className="fid-btn-outline-xl">Download EazyRecorder</Link>
           </div>
 
           <div className="fid-hero-trust">
@@ -33,7 +33,7 @@ const HeroBannerHomefour = () => {
                 strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              Free Windows recorder
+              Free Windows Client
             </span>
             <span>
               <svg className="fid-tick" width="14" height="14" viewBox="0 0 24 24"
@@ -49,7 +49,7 @@ const HeroBannerHomefour = () => {
                 strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              No credit card to start
+              Free Forever Plan Available
             </span>
           </div>
         </div>

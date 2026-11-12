@@ -35,21 +35,20 @@ const PRODUCT_GROUPS = [
     items: [
       { href: "/features/scheduling", label: "Scheduling & Access", desc: "Time zones, slots, auto-end", icon: "calendar" },
       { href: "/features/monitoring", label: "Live Monitoring", desc: "Watch any class from browser", icon: "eye" },
-      { href: "/features/courses", label: "Course Management", desc: "Curriculum + annotation", icon: "book" },
     ],
   },
   {
-    category: "Intelligence",
+    category: "Content",
     items: [
-      { href: "/features/recording", label: "Recording & Storage", desc: "Tamper-proof, local + cloud", icon: "record" },
+      { href: "/features/courses", label: "Course Management", desc: "Curriculum + annotation", icon: "book" },
       { href: "/features/ai", label: "Eazy AI Analysis", desc: "BYOK Gemini, live alerts", icon: "sparkle" },
     ],
   },
   {
-    category: "Growth",
+    category: "Distribution",
     items: [
+      { href: "/features/recording", label: "Recording & Storage", desc: "Tamper-proof, local + cloud", icon: "record" },
       { href: "/features/marketing", label: "Social Publishing", desc: "YouTube + 6 platforms", icon: "share" },
-      { href: "/features/crm", label: "Custom CRM", desc: "Connect your own system", icon: "link" },
     ],
   },
 ];
@@ -57,20 +56,14 @@ const PRODUCT_GROUPS = [
 const RESOURCES = [
   { href: "https://app.eazyclassroom.net/docs", label: "Documentation", desc: "Guides & API reference", icon: "file" },
   { href: "/download", label: "Download EazyRecorder", desc: "Free Windows client", icon: "download" },
-  { href: "/faq", label: "FAQ", desc: "Common questions", icon: "help" },
   { href: "/contact", label: "Contact Support", desc: "We reply in 48 hours", icon: "mail" },
-];
-
-const COMPANY = [
-  { href: "/privacy", label: "Privacy", desc: "How we handle data", icon: "shield" },
-  { href: "/terms", label: "Terms", desc: "Legal terms", icon: "file" },
 ];
 
 const HeaderFour = () => {
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileSection, setMobileSection] = useState<string | null>(null);
+  const [mobileSection, setMobileSection] = useState<string | null>("product");
   const [bannerVisible, setBannerVisible] = useState(true);
 
   useEffect(() => {
@@ -319,34 +312,7 @@ const HeaderFour = () => {
                   ))}
                 </div>
               )}
-            </div>
-
-            <div style={{ position: "relative" }} onMouseEnter={() => setOpenMenu("company")}>
-              <button style={{ ...navBtnStyle, color: openMenu === "company" ? "#0F172A" : "#525252", background: openMenu === "company" ? "#F5F5F5" : "transparent" }}>
-                Company
-                <Icon name="chevron" size={10} style={{ transform: openMenu === "company" ? "rotate(180deg)" : "none", transition: "transform 0.2s" }} />
-              </button>
-              {openMenu === "company" && (
-                <div style={{ position: "absolute", top: "calc(100% + 8px)", left: 0, background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "12px", padding: "8px", width: "300px", boxShadow: "0 20px 40px -12px rgba(15,23,42,0.15)", zIndex: 50 }}>
-                  {COMPANY.map((c) => (
-                    <Link key={c.href} href={c.href}
-                      style={{ display: "flex", gap: "10px", padding: "10px 12px", borderRadius: "8px", textDecoration: "none", transition: "background 0.15s" }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "#F8FAFC")}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
-                    >
-                      <div style={{ width: "28px", height: "28px", borderRadius: "6px", background: "rgba(37,99,235,0.08)", color: "#2563EB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                        <Icon name={c.icon} size={14} />
-                      </div>
-                      <div>
-                        <div style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>{c.label}</div>
-                        <div style={{ fontSize: "11px", color: "#64748B", marginTop: "1px" }}>{c.desc}</div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          </nav>
+            </div></nav>
 
           {/* Desktop CTAs */}
           <div className="fid-ctas-desktop" style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0 }}>
@@ -434,7 +400,7 @@ const HeaderFour = () => {
               </div>
 
               <div style={{ marginTop: "16px", paddingTop: "16px", borderTop: "1px solid #F1F5F9", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
-                <div style={{ fontSize: "12px", color: "#64748B" }}>✨ All features included in your 14-day trial · No card required</div>
+                <div style={{ fontSize: "12px", color: "#64748B" }}>✨ All features included in your 14-day trial</div>
                 <Link href="/pricing" style={{ fontSize: "12px", color: "#2563EB", fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px" }}>
                   See pricing <Icon name="arrow" size={12} />
                 </Link>
@@ -474,42 +440,6 @@ const HeaderFour = () => {
 
           {/* Body */}
           <div className="fid-drawer-body">
-            {/* Prominent cards */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "24px" }}>
-              <Link
-                href="/pricing"
-                onClick={() => setMobileOpen(false)}
-                style={{
-                  display: "flex", flexDirection: "column", gap: "6px",
-                  padding: "14px",
-                  background: "#F8FAFC", border: "1px solid #E2E8F0",
-                  borderRadius: "12px", textDecoration: "none",
-                }}
-              >
-                <div style={{ width: "28px", height: "28px", borderRadius: "8px", background: "#EFF6FF", color: "#2563EB", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Icon name="file" size={14} />
-                </div>
-                <div style={{ fontSize: "14px", fontWeight: 700, color: "#0F172A" }}>Pricing</div>
-                <div style={{ fontSize: "11px", color: "#64748B" }}>Free tier available</div>
-              </Link>
-              <Link
-                href="/download"
-                onClick={() => setMobileOpen(false)}
-                style={{
-                  display: "flex", flexDirection: "column", gap: "6px",
-                  padding: "14px",
-                  background: "#0F172A",
-                  borderRadius: "12px", textDecoration: "none",
-                }}
-              >
-                <div style={{ width: "28px", height: "28px", borderRadius: "8px", background: "rgba(255,255,255,0.1)", color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Icon name="download" size={14} />
-                </div>
-                <div style={{ fontSize: "14px", fontWeight: 700, color: "#FFFFFF" }}>Download</div>
-                <div style={{ fontSize: "11px", color: "#94A3B8" }}>EazyRecorder</div>
-              </Link>
-            </div>
-
             {/* Section label */}
             <div style={{ fontSize: "10px", fontWeight: 800, color: "#94A3B8", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "4px", paddingLeft: "4px" }}>
               Explore
@@ -574,31 +504,42 @@ const HeaderFour = () => {
               </div>
             )}
 
-            {/* Company */}
-            <button
-              onClick={() => setMobileSection(mobileSection === "company" ? null : "company")}
-              aria-expanded={mobileSection === "company"}
-              style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 4px", fontSize: "16px", fontWeight: 600, color: "#0F172A", background: "transparent", border: "none", borderTop: "1px solid #F1F5F9", borderBottom: "1px solid #F1F5F9", cursor: "pointer", fontFamily: "inherit" }}
-            >
-              Company
-              <Icon name="chevron" size={14} style={{ transform: mobileSection === "company" ? "rotate(180deg)" : "none", transition: "transform 0.2s", color: "#94A3B8" }} />
-            </button>
-            {mobileSection === "company" && (
-              <div style={{ padding: "8px 0" }}>
-                {COMPANY.map((c) => (
-                  <Link key={c.href} href={c.href} onClick={() => setMobileOpen(false)}
-                    style={{ display: "flex", alignItems: "center", gap: "12px", padding: "10px 4px", textDecoration: "none" }}>
-                    <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(37,99,235,0.08)", color: "#2563EB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <Icon name={c.icon} size={15} />
-                    </div>
-                    <div>
-                      <div style={{ fontSize: "14px", fontWeight: 600, color: "#0F172A" }}>{c.label}</div>
-                      <div style={{ fontSize: "11px", color: "#64748B", marginTop: "1px" }}>{c.desc}</div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            )}
+            {/* Prominent cards */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginTop: "24px" }}>
+              <Link
+                href="/pricing"
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  display: "flex", flexDirection: "column", gap: "6px",
+                  padding: "14px",
+                  background: "#F8FAFC", border: "1px solid #E2E8F0",
+                  borderRadius: "12px", textDecoration: "none",
+                }}
+              >
+                <div style={{ width: "28px", height: "28px", borderRadius: "8px", background: "#EFF6FF", color: "#2563EB", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Icon name="file" size={14} />
+                </div>
+                <div style={{ fontSize: "14px", fontWeight: 700, color: "#0F172A" }}>Pricing</div>
+                <div style={{ fontSize: "11px", color: "#64748B" }}>Free tier available</div>
+              </Link>
+              <Link
+                href="/download"
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  display: "flex", flexDirection: "column", gap: "6px",
+                  padding: "14px",
+                  background: "#0F172A",
+                  borderRadius: "12px", textDecoration: "none",
+                }}
+              >
+                <div style={{ width: "28px", height: "28px", borderRadius: "8px", background: "rgba(255,255,255,0.1)", color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Icon name="download" size={14} />
+                </div>
+                <div style={{ fontSize: "14px", fontWeight: 700, color: "#FFFFFF" }}>Download</div>
+                <div style={{ fontSize: "11px", color: "#94A3B8" }}>EazyRecorder</div>
+              </Link>
+            </div>
+
           </div>
 
           {/* Sticky footer CTAs */}

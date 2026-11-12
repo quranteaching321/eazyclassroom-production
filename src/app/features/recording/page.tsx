@@ -1,4 +1,4 @@
-﻿import HeaderFour from "@/layout/headers/HeaderFour";
+import HeaderFour from "@/layout/headers/HeaderFour";
 import FooterFour from "@/layout/footers/FooterFour";
 import Link from "next/link";
 
@@ -11,7 +11,7 @@ export default function RecordingPage() {
   return (
     <>
       <HeaderFour />
-      <main style={{ paddingTop: "68px" }}>
+      <main style={{ paddingTop: "0px" }}>
 
         {/* ============ 1. HERO ============ */}
         <section className="sp-hero-new">
