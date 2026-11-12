@@ -208,7 +208,6 @@ const HeaderFour = () => {
           <span className="fid-announce-extras" style={{ color: "#475569" }}>·</span>
           <span className="fid-announce-extras" style={{ display: "inline-flex", gap: "16px", flexWrap: "wrap", justifyContent: "center", fontSize: "11px", color: "#94A3B8" }}>
             <span>✓ 14-day trial</span>
-            <span>✓ No card required</span>
             <span>✓ Free Windows app</span>
           </span>
           <Link href="/features/ai" style={{ color: "#60A5FA", textDecoration: "none", fontWeight: 600, display: "inline-flex", alignItems: "center", gap: "4px" }}>
