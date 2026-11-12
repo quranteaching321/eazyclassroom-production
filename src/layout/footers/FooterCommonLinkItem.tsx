@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 // footer link type
 interface footer_links_type {
@@ -31,8 +31,7 @@ const footer_links: footer_links_type[] = [
         { title: "Terms of Service", link: "terms" },
         { title: "Sign in", link: "https://app.eazyclassroom.net/signin" },
         { title: "Sign up", link: "https://app.eazyclassroom.net/signup" },
-        { title: "Documentation", link: "https://app.eazyclassroom.net/doc/" },
-        { title: "API Integraion", link: "https://app.eazyclassroom.net/docs/api/overview" },
+        { title: "Documentation", link: "https://app.eazyclassroom.net/docs" },
       ],
     },
     {

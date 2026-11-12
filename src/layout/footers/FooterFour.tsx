@@ -52,7 +52,7 @@ const FooterFour = () => {
               <h4 className="ec-footer-heading">Company</h4>
               <ul className="ec-footer-links">
                 <li><Link href="/contact">Contact Support</Link></li>
-                <li><Link href="/docs">Documentation</Link></li>
+                <li><a href="https://app.eazyclassroom.net/docs" target="_blank" rel="noreferrer">Documentation</a></li>
                 <li><Link href="/privacy">Privacy Policy</Link></li>
                 <li><Link href="/terms">Terms of Service</Link></li>
               </ul>

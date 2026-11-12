@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -55,7 +55,7 @@ const PRODUCT_GROUPS = [
 ];
 
 const RESOURCES = [
-  { href: "/docs", label: "Documentation", desc: "Guides & API reference", icon: "file" },
+  { href: "https://app.eazyclassroom.net/docs", label: "Documentation", desc: "Guides & API reference", icon: "file" },
   { href: "/download", label: "Download EazyRecorder", desc: "Free Windows client", icon: "download" },
   { href: "/faq", label: "FAQ", desc: "Common questions", icon: "help" },
   { href: "/contact", label: "Contact Support", desc: "We reply in 48 hours", icon: "mail" },
