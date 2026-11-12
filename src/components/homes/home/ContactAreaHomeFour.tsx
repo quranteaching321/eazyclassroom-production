@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React, { useState, useRef } from "react";
 
 const API_URL = "https://api.eazyclassroom.net/api_v1.php?action=submit_form";
@@ -99,12 +99,13 @@ const ContactAreaHomeFour = () => {
                 </div>
 
                 <div style={{ display: "flex", alignItems: "center", gap: "16px", background: "#FFFFFF", border: "1px solid #E2E8F0", padding: "20px", borderRadius: "12px", boxShadow: "0 4px 6px -1px rgba(0,0,0,0.02)" }}>
-                  <div style={{ width: "48px", height: "48px", background: "#F5F3FF", color: "#8B5CF6", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <div style={{ width: "48px", height: "48px", background: "#FEF3C7", color: "#D97706", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                   </div>
                   <div>
-                    <span style={{ display: "block", fontSize: "13px", color: "#64748B", fontWeight: 600, marginBottom: "2px" }}>Response Time</span>
-                    <span style={{ display: "block", fontSize: "16px", color: "#0F172A", fontWeight: 700 }}>Within 2 Hours</span>
+                    <span style={{ display: "block", fontSize: "13px", color: "#64748B", fontWeight: 600, marginBottom: "2px" }}></span>
+                    <span style={{ display: "block", fontSize: "15px", color: "#0F172A", fontWeight: 700 }}>Reall Technologies LLC</span>
+                    <span style={{ display: "block", fontSize: "11px", color: "#64748B", marginTop: "3px", lineHeight: 1.4 }}>1209 MOUNTAIN ROAD PL NE STE R<br/>ALBUQUERQUE, NM 87110</span>
                   </div>
                 </div>
               </div>
