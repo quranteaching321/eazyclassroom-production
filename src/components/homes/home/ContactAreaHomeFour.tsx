@@ -1,12 +1,69 @@
-"use client";
-import React from "react";
+﻿"use client";
+import React, { useState, useRef } from "react";
+
+const API_URL = "https://api.eazyclassroom.net/api_v1.php?action=submit_form";
 
 const ContactAreaHomeFour = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [statusMsg, setStatusMsg] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (status === "sending") return;
+    setStatus("sending");
+    setStatusMsg("");
+
+    const fd = new FormData(e.currentTarget);
+    const payload = {
+      fullName: String(fd.get("fullName") || "").trim(),
+      email: String(fd.get("email") || "").trim(),
+      phone: String(fd.get("phone") || "").trim(),
+      website: String(fd.get("academyName") || "").trim(),
+      message: String(fd.get("message") || "").trim(),
+    };
+
+    if (!payload.fullName || !payload.email || !payload.message) {
+      setStatus("error");
+      setStatusMsg("Please fill in your name, email, and message.");
+      return;
+    }
+
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      // PHP may prefix warnings to JSON â€” extract the object
+      const text = await res.text();
+      const start = text.indexOf("{");
+      const end = text.lastIndexOf("}");
+      let data: { success?: boolean; message?: string } = {};
+      if (start !== -1 && end > start) {
+        try { data = JSON.parse(text.slice(start, end + 1)); } catch { /* ignore */ }
+      }
+
+      if (res.ok && data.success) {
+        setStatus("success");
+        setStatusMsg(data.message || "Message sent! We'll be in touch soon.");
+        formRef.current?.reset();
+      } else {
+        setStatus("error");
+        setStatusMsg(data.message || "Failed to send. Please try again.");
+      }
+    } catch {
+      setStatus("error");
+      setStatusMsg("Network error. Please try again.");
+    }
+  };
+
   return (
     <section className="ec-feature-section" style={{ background: "#F8FAFC", borderTop: "1px solid #E2E8F0", padding: "100px 0" }}>
       <div className="container">
         <div className="row">
-          
+
           {/* Left Side: Contact Info (Sticky) */}
           <div className="col-lg-5 mb-5 mb-lg-0">
             <div style={{ position: "sticky", top: "120px", paddingRight: "20px" }}>
@@ -20,9 +77,7 @@ const ContactAreaHomeFour = () => {
                 Have questions about features, pricing, or custom CRM integration? Our team usually replies within a few hours.
               </p>
 
-              {/* Contact Methods */}
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                
                 <div style={{ display: "flex", alignItems: "center", gap: "16px", background: "#FFFFFF", border: "1px solid #E2E8F0", padding: "20px", borderRadius: "12px", boxShadow: "0 4px 6px -1px rgba(0,0,0,0.02)" }}>
                   <div style={{ width: "48px", height: "48px", background: "#EFF6FF", color: "#2563EB", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -52,7 +107,6 @@ const ContactAreaHomeFour = () => {
                     <span style={{ display: "block", fontSize: "16px", color: "#0F172A", fontWeight: 700 }}>Within 2 Hours</span>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -62,39 +116,56 @@ const ContactAreaHomeFour = () => {
             <div style={{ background: "#FFFFFF", border: "1px solid #E2E8F0", borderRadius: "16px", padding: "40px", boxShadow: "0 10px 30px -10px rgba(15, 23, 42, 0.05)", height: "100%" }}>
               <h3 style={{ fontSize: "24px", fontWeight: 800, color: "#0F172A", marginBottom: "8px" }}>Send us a message</h3>
               <p style={{ fontSize: "14px", color: "#64748B", marginBottom: "32px" }}>Fill out the form below and we'll get back to you as soon as possible.</p>
-              
-              <form style={{ display: "flex", flexDirection: "column", gap: "20px" }} onSubmit={(e) => e.preventDefault()}>
+
+              <form ref={formRef} style={{ display: "flex", flexDirection: "column", gap: "20px" }} onSubmit={handleSubmit}>
                 <div className="row">
                   <div className="col-md-6">
                     <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "#0F172A", marginBottom: "8px" }}>Full Name</label>
-                    <input type="text" placeholder="John Doe" required style={{ width: "100%", padding: "14px 16px", background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "8px", fontSize: "14px", color: "#0F172A", outline: "none" }} />
+                    <input type="text" name="fullName" placeholder="John Doe" required style={{ width: "100%", padding: "14px 16px", background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "8px", fontSize: "14px", color: "#0F172A", outline: "none" }} />
                   </div>
                   <div className="col-md-6">
                     <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "#0F172A", marginBottom: "8px" }}>Academy Name</label>
-                    <input type="text" placeholder="Al-Noor Academy" style={{ width: "100%", padding: "14px 16px", background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "8px", fontSize: "14px", color: "#0F172A", outline: "none" }} />
+                    <input type="text" name="academyName" placeholder="Al-Noor Academy" style={{ width: "100%", padding: "14px 16px", background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "8px", fontSize: "14px", color: "#0F172A", outline: "none" }} />
                   </div>
                 </div>
-                
+
                 <div className="row">
                   <div className="col-md-6">
                     <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "#0F172A", marginBottom: "8px" }}>Email Address</label>
-                    <input type="email" placeholder="john@academy.com" required style={{ width: "100%", padding: "14px 16px", background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "8px", fontSize: "14px", color: "#0F172A", outline: "none" }} />
+                    <input type="email" name="email" placeholder="john@academy.com" required style={{ width: "100%", padding: "14px 16px", background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "8px", fontSize: "14px", color: "#0F172A", outline: "none" }} />
                   </div>
                   <div className="col-md-6">
                     <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "#0F172A", marginBottom: "8px" }}>Phone Number</label>
-                    <input type="tel" placeholder="+1 (555) 000-0000" style={{ width: "100%", padding: "14px 16px", background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "8px", fontSize: "14px", color: "#0F172A", outline: "none" }} />
+                    <input type="tel" name="phone" placeholder="+1 (555) 000-0000" style={{ width: "100%", padding: "14px 16px", background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "8px", fontSize: "14px", color: "#0F172A", outline: "none" }} />
                   </div>
                 </div>
 
                 <div>
                   <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "#0F172A", marginBottom: "8px" }}>How can we help?</label>
-                  <textarea rows={5} placeholder="Tell us about your academy and what you're looking for..." required style={{ width: "100%", padding: "14px 16px", background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "8px", fontSize: "14px", color: "#0F172A", outline: "none", resize: "vertical", minHeight: "120px" }}></textarea>
+                  <textarea name="message" rows={5} placeholder="Tell us about your academy and what you're looking for..." required style={{ width: "100%", padding: "14px 16px", background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "8px", fontSize: "14px", color: "#0F172A", outline: "none", resize: "vertical", minHeight: "120px" }}></textarea>
                 </div>
 
-                <button type="submit" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", width: "100%", padding: "16px", background: "#2563EB", color: "#FFFFFF", border: "none", borderRadius: "8px", fontSize: "16px", fontWeight: 700, cursor: "pointer", transition: "background 0.2s" }}>
-                  Send Message
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                <button type="submit" disabled={status === "sending"} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", width: "100%", padding: "16px", background: status === "sending" ? "#60A5FA" : "#2563EB", color: "#FFFFFF", border: "none", borderRadius: "8px", fontSize: "16px", fontWeight: 700, cursor: status === "sending" ? "wait" : "pointer", transition: "background 0.2s" }}>
+                  {status === "sending" ? "Sendingâ€¦" : "Send Message"}
+                  {status !== "sending" && (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                  )}
                 </button>
+
+                {statusMsg && (
+                  <p style={{
+                    padding: "12px 16px",
+                    borderRadius: "8px",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    margin: 0,
+                    background: status === "success" ? "#ECFDF5" : "#FEF2F2",
+                    color: status === "success" ? "#065F46" : "#991B1B",
+                    border: `1px solid ${status === "success" ? "#A7F3D0" : "#FECACA"}`,
+                  }}>
+                    {statusMsg}
+                  </p>
+                )}
               </form>
             </div>
           </div>

@@ -33,7 +33,7 @@ const ContactFormHomeFour = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const response = await fetch("https://api.eazyclassroom.net/api.php?action=submit_form", {
+      const response = await fetch("https://api.eazyclassroom.net/api_v1.php?action=submit_form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
