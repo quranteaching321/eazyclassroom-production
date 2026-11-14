@@ -26,6 +26,7 @@ const ContactUs = () => {
     });
 
     const onSubmit = (data: FormData) => {
+        trackLeadSubmit("contact_us");
         console.log(data);
         reset();
     };
