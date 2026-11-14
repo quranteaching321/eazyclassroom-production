@@ -14,6 +14,7 @@ window.dataLayer.push(payload);
 }
 
 export function trackEvent(eventName: string, params: AnalyticsParams = {}) {
+  console.log("[Analytics] Pushing:", eventName, params);
 safePush({ event: eventName, ...params });
 }
 

@@ -31,7 +31,7 @@ export default function DownloadGate() {
         } catch (e) {
           trackDownloadComplete("unknown");
         }
-        window.location.href = href;
+        setTimeout(() => { window.location.href = href; }, 400);
       } else {
         setError("Security check failed. Please try again.");
         widgetRef.current?.reset();
@@ -55,6 +55,8 @@ export default function DownloadGate() {
       const el = (e.target as HTMLElement | null)?.closest("a") as HTMLAnchorElement | null;
       if (!el || !isDownloadLink(el)) return;
       if (sessionStorage.getItem(SESSION_KEY) === "1") {
+        e.preventDefault();
+        setTimeout(() => { window.location.href = el.href; }, 400);
         try {
           const u = new URL(el.href);
           const parts = u.pathname.split("/");
