@@ -4,6 +4,7 @@ import {
 trackSignupClick,
 trackLoginClick,
 trackDownloadClick,
+trackDownloadComplete,
 } from '@/lib/analytics';
 
 const SIGNUP_HOST = 'app.eazyclassroom.net';
