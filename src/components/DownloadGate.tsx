@@ -67,6 +67,13 @@ export default function DownloadGate() {
         return;
       }
       e.preventDefault();
+      try {
+        const u = new URL(el.href);
+        const parts = u.pathname.split("/");
+        trackDownloadComplete(parts.length ? parts[parts.length - 1] : "unknown");
+      } catch (err) {
+        trackDownloadComplete("unknown");
+      }
       setError(null);
       setPending(el.href);
       if (token) void verifyAndGo(token, el.href);
