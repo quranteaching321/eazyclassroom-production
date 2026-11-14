@@ -33,6 +33,7 @@ const ContactFormHomeFour = () => {
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
 
   const onSubmit = async (data: FormData) => {
+    trackLeadSubmit("contact_home_four");
     try {
       const response = await fetch("https://api.eazyclassroom.net/api_v1.php?action=submit_form", {
         method: "POST",

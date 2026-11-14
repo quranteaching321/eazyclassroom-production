@@ -41,6 +41,7 @@ if (url.pathname.indexOf(DOWNLOAD_PREFIX) === 0) {
 const parts = url.pathname.split('/');
 const fileName = parts.length ? parts[parts.length - 1] : 'unknown';
 trackDownloadClick(fileName, url.toString());
+        trackDownloadComplete(fileName);
 }
 }
 }
