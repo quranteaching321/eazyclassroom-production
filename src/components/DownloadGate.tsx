@@ -54,7 +54,16 @@ export default function DownloadGate() {
     function onClick(e: MouseEvent) {
       const el = (e.target as HTMLElement | null)?.closest("a") as HTMLAnchorElement | null;
       if (!el || !isDownloadLink(el)) return;
-      if (sessionStorage.getItem(SESSION_KEY) === "1") return;
+      if (sessionStorage.getItem(SESSION_KEY) === "1") {
+        try {
+          const u = new URL(el.href);
+          const parts = u.pathname.split("/");
+          trackDownloadComplete(parts.length ? parts[parts.length - 1] : "unknown");
+        } catch (e) {
+          trackDownloadComplete("unknown");
+        }
+        return;
+      }
       e.preventDefault();
       setError(null);
       setPending(el.href);
