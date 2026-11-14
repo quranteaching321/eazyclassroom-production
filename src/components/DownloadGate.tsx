@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
+import { trackDownloadComplete } from "@/lib/analytics";
 
 const DOWNLOAD_HOST = "api.eazyclassroom.net";
 const DOWNLOAD_PATH_PREFIX = "/downloads/";
@@ -22,6 +23,14 @@ export default function DownloadGate() {
       const data = await res.json();
       if (data.success) {
         sessionStorage.setItem(SESSION_KEY, "1");
+        try {
+          const u = new URL(href);
+          const parts = u.pathname.split("/");
+          const fileName = parts.length ? parts[parts.length - 1] : "unknown";
+          trackDownloadComplete(fileName);
+        } catch (e) {
+          trackDownloadComplete("unknown");
+        }
         window.location.href = href;
       } else {
         setError("Security check failed. Please try again.");

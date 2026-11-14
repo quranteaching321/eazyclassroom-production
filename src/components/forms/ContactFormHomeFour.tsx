@@ -1,9 +1,10 @@
-﻿"use client";
+"use client";
 
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
+import { trackLeadSubmit } from "@/lib/analytics";
 
 interface FormData {
   fullName: string;
@@ -46,6 +47,7 @@ const ContactFormHomeFour = () => {
       }
 
       await response.json();
+      trackLeadSubmit("contact_home_four");
       setStatusMessage("Your message has been sent successfully!");
       reset();
     } catch (error) {

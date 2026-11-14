@@ -1,4 +1,6 @@
-﻿import "../styles/index.scss";
+import AnalyticsRouter from "@/components/AnalyticsRouter";
+import LinkTracker from "@/components/LinkTracker";
+import "../styles/index.scss";
 import "../styles/custom.css";
 export default function RootLayout({
   children,
@@ -86,6 +88,8 @@ export default function RootLayout({
           />
         </noscript>
 
+        <AnalyticsRouter />
+        <LinkTracker />
         {children}
       </body>
     </html>
