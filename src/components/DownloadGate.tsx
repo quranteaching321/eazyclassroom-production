@@ -51,7 +51,7 @@ export default function DownloadGate() {
         return u.host === DOWNLOAD_HOST && u.pathname.startsWith(DOWNLOAD_PATH_PREFIX);
       } catch { return false; }
     }
-    function onClick(e: MouseEvent) {
+    function onClick(e: Event) {
       const el = (e.target as HTMLElement | null)?.closest("a") as HTMLAnchorElement | null;
       if (!el || !isDownloadLink(el)) return;
       if (sessionStorage.getItem(SESSION_KEY) === "1") {
