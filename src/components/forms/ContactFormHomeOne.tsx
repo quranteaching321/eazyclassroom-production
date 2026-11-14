@@ -1,6 +1,7 @@
-﻿"use client"
+"use client"
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
+import { trackLeadSubmit } from "@/lib/analytics";
 import { yupResolver } from '@hookform/resolvers/yup';
 
 
