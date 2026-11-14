@@ -1,12 +1,12 @@
-﻿"use client";
+"use client";
 import { useState } from "react";
 import Link from "next/link";
 
 const faq_data = [
   {
     id: 1,
-    question: "Do I need a Windows PC to use EazyClassroom?",
-    answer: "The web dashboard and parent portal work on any device (Mac, PC, phone, tablet). However, the EazyRecorder desktop app—which handles the automatic local recording and cloud push—is currently a Windows application (Windows 10/11). You only need a Windows PC for the tutor who is hosting the session.",
+    question: "Can I use existing rooms like Zoom, Google Meet, or Microsoft Teams?",
+    answer: "Yes, you don't need to change your existing rooms. You can just authorize your existing rooms from the web dashboard and then start sessions from our Windows client, Eazy Recorder.",
   },
   {
     id: 2,
