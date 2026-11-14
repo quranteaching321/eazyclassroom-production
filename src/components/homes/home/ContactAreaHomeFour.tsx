@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useRef } from "react";
+import { trackLeadSubmit } from "@/lib/analytics";
 
 const API_URL = "https://api.eazyclassroom.net/api_v1.php?action=submit_form";
 
@@ -46,6 +47,7 @@ const ContactAreaHomeFour = () => {
       }
 
       if (res.ok && data.success) {
+        trackLeadSubmit("contact_page");
         setStatus("success");
         setStatusMsg(data.message || "Message sent! We'll be in touch soon.");
         formRef.current?.reset();

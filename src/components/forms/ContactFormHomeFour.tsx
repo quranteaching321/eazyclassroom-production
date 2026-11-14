@@ -33,7 +33,6 @@ const ContactFormHomeFour = () => {
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
 
   const onSubmit = async (data: FormData) => {
-    trackLeadSubmit("contact_home_four");
     try {
       const response = await fetch("https://api.eazyclassroom.net/api_v1.php?action=submit_form", {
         method: "POST",
@@ -49,7 +48,6 @@ const ContactFormHomeFour = () => {
         throw new Error("There was an error submitting the form.");
       }
 
-      trackLeadSubmit("contact_home_four");
       setStatusMessage("Your message has been sent successfully!");
       reset();
     } catch (error) {
