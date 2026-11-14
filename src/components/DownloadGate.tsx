@@ -71,7 +71,11 @@ export default function DownloadGate() {
       else widgetRef.current?.execute();
     }
     document.addEventListener("click", onClick, true);
-    return () => document.removeEventListener("click", onClick, true);
+    document.addEventListener("keydown", onClick, true);
+    return () => {
+      document.removeEventListener("click", onClick, true);
+      document.removeEventListener("keydown", onClick, true);
+    };
   }, [token, verifyAndGo]);
 
   return (
