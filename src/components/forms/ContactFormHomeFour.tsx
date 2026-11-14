@@ -42,11 +42,12 @@ const ContactFormHomeFour = () => {
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) {
+      if (response.ok) {
+        trackLeadSubmit("contact_form");
+      } else {
         throw new Error("There was an error submitting the form.");
       }
 
-      await response.json();
       trackLeadSubmit("contact_home_four");
       setStatusMessage("Your message has been sent successfully!");
       reset();
