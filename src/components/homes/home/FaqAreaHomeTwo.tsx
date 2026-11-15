@@ -23,11 +23,7 @@ const faq_data = [
     question: "What happens when we run out of cloud storage?",
     answer: "Each room comes with 50GB of cloud storage. If you hit the limit, our system automatically deletes the oldest recordings first (FIFO). You will never get a surprise overage bill. If you want to keep everything, you can purchase extra GB anytime from your dashboard.",
   },
-  {
-    id: 5,
-    question: "Can multiple teachers share the same login?",
-    answer: "Yes. From the admin dashboard, you can create a single reusable login and assign it to multiple rooms. This is perfect for academies where multiple teachers (or one teacher managing multiple grades) need access without creating separate credentials for every room. They simply log into EazyRecorder once and select their assigned room.",
-  },
+  
   {
     id: 99,
     question: "Can multiple rooms have one room login?",
