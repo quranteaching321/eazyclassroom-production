@@ -26,7 +26,12 @@ const faq_data = [
   {
     id: 5,
     question: "Can multiple teachers share the same login?",
-    answer: "Absolutely. In the admin panel, you can create a single room login and assign it to multiple rooms. This is perfect for a tutor who teaches three different grades; they just sign into EazyRecorder once and switch between rooms.",
+    answer: "Yes. From the admin dashboard, you can create a single reusable login and assign it to multiple rooms. This is perfect for academies where multiple teachers (or one teacher managing multiple grades) need access without creating separate credentials for every room. They simply log into EazyRecorder once and select their assigned room.",
+  },
+  {
+    id: 99,
+    question: "Can multiple rooms have one room login?",
+    answer: "Yes. You can give each room its own unique username and password, or you can link multiple rooms to a single shared login. This is highly useful if a teacher hosts sessions across different platforms (like one room on Zoom and another on Google Meet) but wants to use the same credentials to start both sessions from EazyRecorder.",
   },
   {
     id: 6,
