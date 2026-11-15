@@ -1,4 +1,4 @@
-﻿
+
 import FooterFour from "@/layout/footers/FooterFour";
 import HeaderFour from "@/layout/headers/HeaderFour";
 import DashbordAreaHomeThree from "./DashbordAreaHomeThree";
@@ -11,6 +11,7 @@ import ServicesAreaHomeThree from "./ServicesAreaHomeThree";
 import MarketingFeatureArea from "./MarketingFeatureArea";
 import FaqAreaHomeTwo from "./FaqAreaHomeTwo";
 import CourseAreaHomeFour from "./CourseAreaHomeFour"; // <-- NEW IMPORT
+import WhatsAppAreaHomeFour from "./WhatsAppAreaHomeFour";
 import CrmAreaHomeFour from "./CrmAreaHomeFour"; // <-- NEW IMPORT
 const HomeFour = () => {
   return (
@@ -26,7 +27,8 @@ const HomeFour = () => {
         <PricingAreaHomeOne />
         <MarketingFeatureArea />
                 <CourseAreaHomeFour />    {/* <-- NEW SECTION ADDED HERE */}
-                        <CrmAreaHomeFour />        {/* <-- NEW SECTION ADDED HERE */}
+                        <CrmAreaHomeFour />
+        <WhatsAppAreaHomeFour />        {/* <-- NEW SECTION ADDED HERE */}
         <FaqAreaHomeTwo />
         </main>
       <FooterFour />
