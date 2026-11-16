@@ -1,7 +1,8 @@
-/** @type {import('next').NextConfig} */
+/** @type {import("next").NextConfig} */
 const nextConfig = {
- 
-  // Add any other custom configuration settings you have here
-}
+  images: {
+    unoptimized: true,
+  },
+};
 
 module.exports = nextConfig;
