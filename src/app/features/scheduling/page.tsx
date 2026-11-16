@@ -1,10 +1,25 @@
+import type { Metadata } from "next";
 import HeaderFour from "@/layout/headers/HeaderFour";
 import FooterFour from "@/layout/footers/FooterFour";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Scheduling & Access Control | EazyClassroom",
   description: "Enforce time zones, block late-night sessions, and limit room access. EazyRecorder guarantees the schedule is followed.",
+  alternates: { canonical: "https://eazyclassroom.net/features/scheduling" },
+  openGraph: {
+    title: "Scheduling & Access Control | EazyClassroom",
+    description: "Enforce time zones, block late-night sessions, and limit room access. EazyRecorder guarantees the schedule is followed.",
+    url: "https://eazyclassroom.net/features/scheduling",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "EazyClassroom" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scheduling & Access Control | EazyClassroom",
+    description: "Enforce time zones, block late-night sessions, and limit room access. EazyRecorder guarantees the schedule is followed.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function SchedulingPage() {

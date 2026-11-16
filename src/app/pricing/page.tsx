@@ -1,10 +1,25 @@
+import type { Metadata } from "next";
 import HeaderFour from "@/layout/headers/HeaderFour";
 import FooterFour from "@/layout/footers/FooterFour";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Pricing | EazyClassroom",
   description: "Transparent pricing. $5/mo for native rooms, $1/mo for external rooms (promo). EazyRecorder desktop app is 100% free for local recording.",
+  alternates: { canonical: "https://eazyclassroom.net/pricing" },
+  openGraph: {
+    title: "Pricing | EazyClassroom",
+    description: "Transparent pricing. $5/mo for native rooms, $1/mo for external rooms (promo). EazyRecorder desktop app is 100% free for local recording.",
+    url: "https://eazyclassroom.net/pricing",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "EazyClassroom" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pricing | EazyClassroom",
+    description: "Transparent pricing. $5/mo for native rooms, $1/mo for external rooms (promo). EazyRecorder desktop app is 100% free for local recording.",
+    images: ["/og-image.png"],
+  },
 };
 
 const Tick = ({ color = "#10B981" }: { color?: string }) => (

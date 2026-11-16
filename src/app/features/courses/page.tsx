@@ -1,10 +1,25 @@
+import type { Metadata } from "next";
 import HeaderFour from "@/layout/headers/HeaderFour";
 import FooterFour from "@/layout/footers/FooterFour";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Course Management & Annotation | EazyClassroom",
   description: "Build courses, upload PDFs and images in bulk, assign them to rooms, and annotate live during the session.",
+  alternates: { canonical: "https://eazyclassroom.net/features/courses" },
+  openGraph: {
+    title: "Course Management & Annotation | EazyClassroom",
+    description: "Build courses, upload PDFs and images in bulk, assign them to rooms, and annotate live during the session.",
+    url: "https://eazyclassroom.net/features/courses",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "EazyClassroom" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Course Management & Annotation | EazyClassroom",
+    description: "Build courses, upload PDFs and images in bulk, assign them to rooms, and annotate live during the session.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function CoursesPage() {

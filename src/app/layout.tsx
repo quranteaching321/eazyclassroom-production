@@ -1,7 +1,32 @@
+import type { Metadata } from "next";
 import AnalyticsRouter from "@/components/AnalyticsRouter";
 import LinkTracker from "@/components/LinkTracker";
 import "../styles/index.scss";
 import "../styles/custom.css";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://eazyclassroom.net"),
+  title: "EazyClassroom - All-in-One Virtual Classroom Management",
+  description: "Manage virtual classrooms, record sessions, monitor tutors, and analyze lessons with AI. Connect Zoom, Google Meet, Microsoft Teams, and native rooms.",
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "EazyClassroom",
+    locale: "en_US",
+    url: "https://eazyclassroom.net",
+    title: "EazyClassroom - All-in-One Virtual Classroom Management",
+    description: "Manage virtual classrooms, record sessions, monitor tutors, and analyze lessons with AI.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "EazyClassroom" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EazyClassroom",
+    description: "Manage virtual classrooms, record sessions, monitor tutors, and analyze lessons with AI.",
+    images: ["/og-image.png"],
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -90,6 +115,18 @@ export default function RootLayout({
 
         <AnalyticsRouter />
         <LinkTracker />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "EazyClassroom",
+            "url": "https://eazyclassroom.net",
+            "logo": "https://eazyclassroom.net/og-image.png",
+            "description": "All-in-one virtual classroom management system for academies.",
+            "sameAs": ["https://app.eazyclassroom.net"],
+          }) }}
+        />
         {children}
       </body>
     </html>

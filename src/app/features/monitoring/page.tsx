@@ -1,10 +1,25 @@
+import type { Metadata } from "next";
 import HeaderFour from "@/layout/headers/HeaderFour";
 import FooterFour from "@/layout/footers/FooterFour";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Live Monitoring & Security | EazyClassroom",
   description: "Watch every active session live from your dashboard and get instant alerts if a teacher drops off.",
+  alternates: { canonical: "https://eazyclassroom.net/features/monitoring" },
+  openGraph: {
+    title: "Live Monitoring & Security | EazyClassroom",
+    description: "Watch every active session live from your dashboard and get instant alerts if a teacher drops off.",
+    url: "https://eazyclassroom.net/features/monitoring",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "EazyClassroom" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Live Monitoring & Security | EazyClassroom",
+    description: "Watch every active session live from your dashboard and get instant alerts if a teacher drops off.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function MonitoringPage() {

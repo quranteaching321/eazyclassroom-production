@@ -1,10 +1,25 @@
+import type { Metadata } from "next";
 import HeaderFour from "@/layout/headers/HeaderFour";
 import FooterFour from "@/layout/footers/FooterFour";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Marketing & Social Publishing | EazyClassroom",
   description: "Publish to Facebook, Instagram, YouTube, LinkedIn, Pinterest, and TikTok from one dashboard. Schedule posts, clip highlights during class, and stream to YouTube.",
+  alternates: { canonical: "https://eazyclassroom.net/features/marketing" },
+  openGraph: {
+    title: "Marketing & Social Publishing | EazyClassroom",
+    description: "Publish to Facebook, Instagram, YouTube, LinkedIn, Pinterest, and TikTok from one dashboard. Schedule posts, clip highlights during class, and stream to YouTube.",
+    url: "https://eazyclassroom.net/features/marketing",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "EazyClassroom" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marketing & Social Publishing | EazyClassroom",
+    description: "Publish to Facebook, Instagram, YouTube, LinkedIn, Pinterest, and TikTok from one dashboard. Schedule posts, clip highlights during class, and stream to YouTube.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function MarketingPage() {

@@ -1,10 +1,25 @@
+import type { Metadata } from "next";
 ﻿import HeaderFour from "@/layout/headers/HeaderFour";
 import FooterFour from "@/layout/footers/FooterFour";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Privacy Policy | EazyClassroom",
-  description: "How EazyClassroom collects, uses, and protects your academy's data.",
+  description: "How EazyClassroom collects, uses, and protects your academy",
+  alternates: { canonical: "https://eazyclassroom.net/privacy" },
+  openGraph: {
+    title: "Privacy Policy | EazyClassroom",
+    description: "How EazyClassroom collects, uses, and protects your academy",
+    url: "https://eazyclassroom.net/privacy",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "EazyClassroom" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | EazyClassroom",
+    description: "How EazyClassroom collects, uses, and protects your academy",
+    images: ["/og-image.png"],
+  },
 };
 
 const sections = [

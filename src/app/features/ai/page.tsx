@@ -1,10 +1,25 @@
+import type { Metadata } from "next";
 import HeaderFour from "@/layout/headers/HeaderFour";
 import FooterFour from "@/layout/footers/FooterFour";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Eazy AI Live Analysis | EazyClassroom",
   description: "Real-time AI that analyzes live sessions, generates ratings, and detects off-topic behavior via audio, chat, screensharing, and drawing tools.",
+  alternates: { canonical: "https://eazyclassroom.net/features/ai" },
+  openGraph: {
+    title: "Eazy AI Live Analysis | EazyClassroom",
+    description: "Real-time AI that analyzes live sessions, generates ratings, and detects off-topic behavior via audio, chat, screensharing, and drawing tools.",
+    url: "https://eazyclassroom.net/features/ai",
+    type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "EazyClassroom" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Eazy AI Live Analysis | EazyClassroom",
+    description: "Real-time AI that analyzes live sessions, generates ratings, and detects off-topic behavior via audio, chat, screensharing, and drawing tools.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function AIPage() {

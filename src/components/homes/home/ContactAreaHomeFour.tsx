@@ -72,9 +72,9 @@ const ContactAreaHomeFour = () => {
               <span className="ec-kicker" style={{ background: "rgba(37, 99, 235, 0.1)", color: "#2563EB", borderColor: "rgba(37, 99, 235, 0.2)" }}>
                 Contact Us
               </span>
-              <h2 style={{ fontSize: "36px", fontWeight: 800, color: "#0F172A", letterSpacing: "-0.03em", lineHeight: 1.15, margin: "16px 0 20px" }}>
+              <h1 style={{ fontSize: "36px", fontWeight: 800, color: "#0F172A", letterSpacing: "-0.03em", lineHeight: 1.15, margin: "16px 0 20px" }}>
                 Let's talk about<br />your academy.
-              </h2>
+              </h1>
               <p style={{ fontSize: "17px", color: "#475569", lineHeight: 1.6, marginBottom: "40px" }}>
                 Have questions about features, pricing, or custom CRM integration? Our team usually replies within a few hours.
               </p>
