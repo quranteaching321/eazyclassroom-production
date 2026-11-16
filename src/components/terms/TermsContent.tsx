@@ -7,7 +7,7 @@
             <div className="col-lg-12">
               <div className="about-inner-wrap">
 
-                <h1>Terms of Service for Eazyclassroom.Net</h1>
+                <h1>Terms of Service for EazyClassroom.net</h1>
 
                 <p>
                   <strong>Last updated: November 7, 2026</strong>

@@ -10,3 +10,4 @@ node_modules/
 *.bak4
 *.bak5
 *.ps1
+tsconfig.tsbuildinfo
