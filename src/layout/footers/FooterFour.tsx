@@ -36,10 +36,10 @@ const FooterFour = () => {
             <div className="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
               <h4 className="ec-footer-heading">Features</h4>
               <ul className="ec-footer-links">
-                <li><Link href="/features/scheduling">Scheduling</Link></li>
+                <li><Link href="/features/scheduling">Scheduling &amp; Access Control</Link></li>
                 <li><Link href="/features/ai">Eazy AI Analysis</Link></li>
                 <li><Link href="/features/recording">Recording & Storage</Link></li>
-                <li><Link href="/features/marketing">Social Publishing</Link></li>
+                <li><Link href="/features/marketing">Social Media Publishing</Link></li>
               </ul>
             </div>
 

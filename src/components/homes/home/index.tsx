@@ -12,7 +12,8 @@ import MarketingFeatureArea from "./MarketingFeatureArea";
 import FaqAreaHomeTwo from "./FaqAreaHomeTwo";
 import CourseAreaHomeFour from "./CourseAreaHomeFour"; // <-- NEW IMPORT
 import WhatsAppAreaHomeFour from "./WhatsAppAreaHomeFour";
-import CrmAreaHomeFour from "./CrmAreaHomeFour"; // <-- NEW IMPORT
+import CrmAreaHomeFour from "./CrmAreaHomeFour";
+import WhiteLabelBrandingArea from "./WhiteLabelBrandingArea"; // <-- NEW IMPORT
 const HomeFour = () => {
   return (
     <>
@@ -26,6 +27,7 @@ const HomeFour = () => {
 
         <PricingAreaHomeOne />
         <MarketingFeatureArea />
+        <WhiteLabelBrandingArea />
                 <CourseAreaHomeFour />    {/* <-- NEW SECTION ADDED HERE */}
                         <CrmAreaHomeFour />
         <WhatsAppAreaHomeFour />        {/* <-- NEW SECTION ADDED HERE */}

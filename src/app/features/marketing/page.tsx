@@ -127,7 +127,7 @@ export default function MarketingPage() {
                   <div style={{ width: '48px', height: '48px', background: '#F5F3FF', color: '#8B5CF6', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
                   </div>
-                  <h4 style={{ fontSize: '20px', fontWeight: 800, color: '#0F172A', marginBottom: '12px' }}>Live Clip Publishing</h4>
+                  <h4 style={{ fontSize: '20px', fontWeight: 800, color: '#0F172A', marginBottom: '12px' }}>Live Session Publishing</h4>
                   <p style={{ fontSize: '15px', color: '#475569', lineHeight: 1.6 }}>
                     During a live class, the tutor clicks <strong>Start</strong> at a highlight moment and <strong>Stop</strong> when done. The clip auto-publishes to every connected social account. Zero editing, zero uploads.
                   </p>
@@ -311,7 +311,7 @@ export default function MarketingPage() {
                     <li><span className="sp-cta-check">✓</span><span>1 free social account</span></li>
                     <li><span className="sp-cta-check">✓</span><span>1 YouTube streaming room</span></li>
                     <li><span className="sp-cta-check">✓</span><span>Multi-platform publisher</span></li>
-                    <li><span className="sp-cta-check">✓</span><span>Live clip publishing from class</span></li>
+                    <li><span className="sp-cta-check">✓</span><span>Live session publishing from class</span></li>
                   </ul>
                   <div className="sp-cta-card-footer">14-day trial · No credit card required</div>
                 </div>
